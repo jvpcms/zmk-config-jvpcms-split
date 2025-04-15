@@ -9,8 +9,8 @@
         = <&pro_micro 20 GPIO_ACTIVE_HIGH>
         , <&pro_micro 22 GPIO_ACTIVE_HIGH>
         , <&pro_micro 24 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 100 GPIO_ACTIVE_HIGH>
+        , <&gpio1 0 GPIO_ACTIVE_HIGH>
         , <&pro_micro 11 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 104 GPIO_ACTIVE_HIGH>
+        , <&gpio1 4 GPIO_ACTIVE_HIGH>
         ;
 };
