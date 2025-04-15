@@ -40,7 +40,7 @@
             &kp LGUI  &kp Z     &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &ct_al_t
         // └─────────┴─────────┴─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┴─────────┴─────────┘
         //                               │         │          │         │     │         │          │         │ 
-                                          &kp LSHFT &kp SPACE  &to 1           &kp DEL   &kp BSPC   &kp RCTRL
+            &none &none &none             &kp LSHFT &kp SPACE  &to 1           &kp DEL   &kp BSPC   &kp RCTRL &none &none &none
         //                               └─────────┴──────────┴─────────┘     └─────────┴──────────┴─────────┘ 
         >;
       };
@@ -57,7 +57,7 @@
               &kp LGUI  &trans    &kp TILDE &kp GRAVE &kp SLCK  &trans          &trans    &kp MINUS &kp UNDER &kp EQUAL &kp PLUS  &ct_al_t
           // └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
           //                               │         │         │         │     │         │         │         │
-                                            &kp LSHFT &kp SPACE &to 2           &to 0     &kp BSPC  &kp RCTRL
+              &none &none &none             &kp LSHFT &kp SPACE &to 2           &to 0     &kp BSPC  &kp RCTRL &none &none &none
           //                               └─────────┴─────────┴─────────┘     └─────────┴─────────┴─────────┘
         >;
       };
@@ -74,7 +74,7 @@
               &kp LGUI  &bt BT_CLR &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_NXT            &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &trans    &ct_al_t
           // └─────────┴──────────┴──────────────┼──────────────┼──────────────┼───────────────┤     ├────────────┼────────────┼────────────┼────────────┴─────────┴──────────┘
           //                                     │              │              │               │     │            │            │            │
-                                                  &kp LSHFT      &mkp LCLK      &to 3                 &to 0        &mkp RCLK    &kp RCTRL
+              &none &none &none                   &kp LSHFT      &mkp LCLK      &to 3                 &to 0        &mkp RCLK    &kp RCTRL &none &none &none
           //                                     └──────────────┴──────────────┴───────────────┘     └────────────┴────────────┴────────────┘
         >;
       };
