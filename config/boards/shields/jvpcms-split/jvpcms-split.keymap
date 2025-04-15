@@ -4,30 +4,30 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+    combos {
+      compatible = "zmk,combos";
+      combo_enter {
+        timeout-ms = <50>;
+        key-positions = <19 20>;
+        bindings = <&kp ENTER>;
+      };
+    };
+    macros {
+      ct_al_t: ct_al_t {
+        label = "ct_al_t";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings 
+        = <&macro_press &kp LCTRL>
+        , <&macro_press &kp LALT>
+        , <&macro_tap &kp T>
+        , <&macro_release &kp LALT>
+        , <&macro_release &kp LCTRL>
+        ;
+      };
+    };
     keymap {
       compatible = "zmk,keymap";
-      combos {
-        compatible = "zmk,combos";
-        combo_enter {
-          timeout-ms = <50>;
-          key-positions = <19 20>;
-          bindings = <&kp ENTER>;
-        };
-      };
-      macros {
-        ct_al_t: ct_al_t {
-          label = "ct_al_t";
-          compatible = "zmk,behavior-macro";
-          #binding-cells = <0>;
-          bindings
-          = <&macro_press &kp LCTRL>
-          , <&macro_press &kp LALT>
-          , <&macro_tap &kp T>
-          , <&macro_release &kp LALT>
-          , <&macro_release &kp LCTRL>
-          ;
-        };
-      };
       default_layer {
         bindings = <
         // ┌─────────┬─────────┬─────────┬─────────┬──────────┬─────────┐     ┌─────────┬──────────┬─────────┬─────────┬─────────┬─────────┐
