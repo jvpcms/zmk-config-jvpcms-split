@@ -14,19 +14,6 @@
           bindings = <&kp ENTER>;
         };
       };
-      macros {
-        ct_al_t: ct_al_t {
-          compatible = "zmk,behavior-macro";
-          #binding-cells = <0>;
-          bindings
-          = <&macro_press &kp LCTRL>
-          , <&macro_press &kp LALT>
-          , <&macro_tap &kp T>
-          , <&macro_release &kp LALT>
-          , <&macro_release &kp LCTRL>
-          ;
-        };
-      };
       default_layer {
         bindings = <
         // ┌─────────┬─────────┬─────────┬─────────┬──────────┬─────────┐     ┌─────────┬──────────┬─────────┬─────────┬─────────┬─────────┐
@@ -54,7 +41,7 @@
               &kp ESC   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5          &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp BSLH
           // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
           // │         │         │         │         │         │         │     │         │         │         │         │         │         │
-              &kp LGUI  &trans    &kp TILDE &kp GRAVE &kp SLCK  &trans          &trans    &kp MINUS &kp UNDER &kp EQUAL &kp PLUS  &ct_al_t
+              &kp LGUI  &trans    &trans    &kp SLCK  &kp TILDE &kp GRAVE       &trans    &kp MINUS &kp UNDER &kp EQUAL &kp PLUS  &ct_al_t
           // └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
           //                               │         │         │         │     │         │         │         │
                                             &kp LSHFT &kp SPACE &to 2           &to 0     &kp BSPC  &kp RCTRL
