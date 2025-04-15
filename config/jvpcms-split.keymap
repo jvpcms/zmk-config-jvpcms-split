@@ -32,7 +32,7 @@
               &kp ESC   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5          &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp BSLH
           // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
           // │         │         │         │         │         │         │     │         │         │         │         │         │         │
-              &kp LGUI  &kp trans &kp TILDE &kp GRAVE &kp SLCK  &kp trans       &kp trans &kp MINUS &kp UNDER &kp EQUAL &kp PLUS  &trans
+              &kp LGUI  &trans    &kp TILDE &kp GRAVE &kp SLCK  &trans          &trans    &kp MINUS &kp UNDER &kp EQUAL &kp PLUS  &trans
           // └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
           //                               │         │         │         │     │         │         │         │
                                             &kp LSHFT &kp SPACE &to 2           &to 0     &kp BSPC  &kp RCTRL
@@ -43,13 +43,13 @@
         bindings = <
           // ┌─────────┬──────────┬──────────────┬──────────────┬──────────────┬───────────────┐     ┌────────────┬────────────┬────────────┬────────────┬─────────┬──────────┐ 
           // │         │          │              │              │              │               │     │            │            │            │            │         │          │ 
-              &kp TAB   &kp trans  &msc SCRL_LEFT &msc SCRL_UP   &msc SCRL_DOWN &msc SCRL_RIGHT       &kp K_VOL_DN &kp K_VOL_UP &kp C_BRI_DN &kp C_BRI_UP &kp PSCRN &kp trans
+              &kp TAB   &trans     &msc SCRL_LEFT &msc SCRL_UP   &msc SCRL_DOWN &msc SCRL_RIGHT       &kp K_VOL_DN &kp K_VOL_UP &kp C_BRI_DN &kp C_BRI_UP &kp PSCRN &trans
           // ├─────────┼──────────┼──────────────┼──────────────┼──────────────┼───────────────┤     ├────────────┼────────────┼────────────┼────────────┼─────────┼──────────┤ 
           // │         │          │              │              │              │               │     │            │            │            │            │         │          │ 
-              &kp ESC   &kp trans  &mmv MOVE_LEFT &mmv MOVE_UP   &mmv MOVE_DOWN &mmn MOVE_RIGHT       &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &kp trans &kp trans
+              &kp ESC   &trans     &mmv MOVE_LEFT &mmv MOVE_UP   &mmv MOVE_DOWN &mmn MOVE_RIGHT       &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &trans    &trans
           // ├─────────┼──────────┼──────────────┼──────────────┼──────────────┼───────────────┤     ├────────────┼────────────┼────────────┼────────────┼─────────┼──────────┤ 
           // │         │          │              │              │              │               │     │            │            │            │            │         │          │
-              &kp LGUI  &bt BT_CLR &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_NXT            &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &kp trans &trans
+              &kp LGUI  &bt BT_CLR &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_NXT            &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &trans    &trans
           // └─────────┴──────────┴──────────────┼──────────────┼──────────────┼───────────────┤     ├────────────┼────────────┼────────────┼────────────┴─────────┴──────────┘
           //                                     │              │              │               │     │            │            │            │
                                                   &kp LSHFT      &mkp LCLK      &to 3                 &to 0        &mkp RCLK    &kp RCTRL
