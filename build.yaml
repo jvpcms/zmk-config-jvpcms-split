@@ -20,4 +20,8 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: two_percent_milk
+    shield: jvpcms-split-left
+  - board: nice_nano_v2
+    shield: jvpcms-split-right
+  - board: nice_nano_v2
+    shield: settings_reset

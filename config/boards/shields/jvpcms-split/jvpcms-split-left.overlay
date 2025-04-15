@@ -1,0 +1,12 @@
+#include "jvpcms-split.dtsi"
+
+&kscan0 {
+    col-gpios
+        = <&pro_micro 104 GPIO_ACTIVE_HIGH>
+        , <&pro_micro 11 GPIO_ACTIVE_HIGH>
+        , <&pro_micro 100 GPIO_ACTIVE_HIGH>
+        , <&pro_micro 24 GPIO_ACTIVE_HIGH>
+        , <&pro_micro 22 GPIO_ACTIVE_HIGH>
+        , <&pro_micro 20 GPIO_ACTIVE_HIGH>
+        ;
+};
