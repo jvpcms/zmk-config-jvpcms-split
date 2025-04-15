@@ -3,6 +3,10 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/pointing.h>
 
+#define DEF 0
+#define FST   1
+#define SND   2
+
 / {
     combos {
       compatible = "zmk,combos";
@@ -13,16 +17,6 @@
       };
     };
     macros {
-      degree: degree {
-        label = "degree";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings 
-        = <&macro_press &kp LALT>
-        , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N7 &kp KP_N6>
-        , <&macro_release &kp LALT>
-        ;
-      };
       ct_al_t: ct_al_t {
         label = "ct_al_t";
         compatible = "zmk,behavior-macro";
@@ -51,7 +45,7 @@
             &kp LGUI  &kp Z     &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &ct_al_t
         // └─────────┴─────────┴─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┴─────────┴─────────┘
         //                               │         │          │         │     │         │          │         │ 
-                                          &kp LSHFT &kp SPACE  &to 1           &kp DEL   &kp BSPC   &kp RCTRL
+                                          &kp LSHFT &kp SPACE  &to FST         &kp DEL   &kp BSPC   &kp RCTRL
         //                               └─────────┴──────────┴─────────┘     └─────────┴──────────┴─────────┘ 
         >;
       };
@@ -65,10 +59,10 @@
               &kp ESC   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5          &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp BSLH
           // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
           // │         │         │         │         │         │         │     │         │         │         │         │         │         │
-              &kp LGUI  &trans    &trans    &kp SLCK  &kp TILDE &kp GRAVE       &kp MINUS &kp UNDER &kp EQUAL &kp PLUS  &degree   &ct_al_t 
+              &kp LGUI  &trans    &trans    &trans    &kp SLCK  &trans          &trans    &kp MINUS &kp EQUAL &kp GRAVE &trans    &ct_al_t 
           // └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
           //                               │         │         │         │     │         │         │         │
-                                            &kp LSHFT &kp SPACE &to 2           &to 0     &kp BSPC  &kp RCTRL
+                                            &kp LSHFT &kp SPACE &to SND         &to DEF   &kp BSPC  &kp RCTRL
           //                               └─────────┴─────────┴─────────┘     └─────────┴─────────┴─────────┘
         >;
       };
@@ -85,7 +79,7 @@
               &kp LGUI  &bt BT_CLR &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_NXT            &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &trans    &ct_al_t
           // └─────────┴──────────┴──────────────┼──────────────┼──────────────┼───────────────┤     ├────────────┼────────────┼────────────┼────────────┴─────────┴──────────┘
           //                                     │              │              │               │     │            │            │            │
-                                                  &kp LSHFT      &mkp LCLK      &to 3                 &to 0        &mkp RCLK    &kp RCTRL
+                                                  &kp LSHFT      &mkp LCLK      &to FST               &to DEF      &mkp RCLK    &kp RCTRL
           //                                     └──────────────┴──────────────┴───────────────┘     └────────────┴────────────┴────────────┘
         >;
       };
