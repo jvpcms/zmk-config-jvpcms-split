@@ -4,8 +4,8 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define DEF 0
-#define FST   1
-#define SND   2
+#define FST 1
+#define SND 2
 
 / {
     combos {
@@ -36,13 +36,13 @@
         bindings = <
         // ┌─────────┬─────────┬─────────┬─────────┬──────────┬─────────┐     ┌─────────┬──────────┬─────────┬─────────┬─────────┬─────────┐
         // │         │         │         │         │          │         │     │         │          │         │         │         │         │
-            &kp TAB   &kp Q     &kp W     &kp E     &kp R      &kp T           &kp Y     &kp U      &kp I     &kp O     &kp P     &kp LBKT
+            &kp A     &kp Q     &kp W     &kp E     &kp R      &kp T           &kp Y     &kp U      &kp I     &kp O     &kp P     &kp LBKT
         // ├─────────┼─────────┼─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┼─────────┼─────────┤
         // │         │         │         │         │          │         │     │         │          │         │         │         │         │
-            &kp ESC   &kp A     &kp S     &kp D     &mt LALT F &kp G           &kp H     &mt RALT J &kp K     &kp L     &kp SEMI  &kp SQT
+            &kp A     &kp A     &kp S     &kp D     &mt LALT F &kp G           &kp H     &mt RALT J &kp K     &kp L     &kp SEMI  &kp SQT
         // ├─────────┼─────────┼─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┼─────────┼─────────┤
         // │         │         │         │         │          │         │     │         │          │         │         │         │         │
-            &kp LGUI  &kp Z     &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &ct_al_t
+            &kp A     &kp Z     &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &ct_al_t
         // └─────────┴─────────┴─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┴─────────┴─────────┘
         //                               │         │          │         │     │         │          │         │ 
                                           &kp LSHFT &kp SPACE  &to FST         &kp DEL   &kp BSPC   &kp RCTRL
