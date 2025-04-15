@@ -6,14 +6,6 @@
 / {
     keymap {
       compatible = "zmk,keymap";
-      combos {
-        compatible = "zmk,combos";
-        combo_enter {
-          timeout-ms = <50>;
-          key-positions = <19 20>;
-          bindings = <&kp ENTER>;
-        };
-      };
       default_layer {
         bindings = <
         // ┌─────────┬─────────┬─────────┬─────────┬──────────┬─────────┐     ┌─────────┬──────────┬─────────┬─────────┬─────────┬─────────┐
@@ -24,7 +16,7 @@
             &kp ESC   &kp A     &kp S     &kp D     &mt LALT F &kp G           &kp H     &mt RALT J &kp K     &kp L     &kp SEMI  &kp SQT
         // ├─────────┼─────────┼─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┼─────────┼─────────┤
         // │         │         │         │         │          │         │     │         │          │         │         │         │         │
-            &kp LGUI  &kp Z     &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &ct_al_t
+            &kp LGUI  &kp Z     &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT
         // └─────────┴─────────┴─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┴─────────┴─────────┘
         //                               │         │          │         │     │         │          │         │ 
                                           &kp LSHFT &kp SPACE  &to 1           &kp DEL   &kp BSPC   &kp RCTRL
@@ -41,7 +33,7 @@
               &kp ESC   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5          &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp BSLH
           // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
           // │         │         │         │         │         │         │     │         │         │         │         │         │         │
-              &kp LGUI  &trans    &trans    &kp SLCK  &kp TILDE &kp GRAVE       &trans    &kp MINUS &kp UNDER &kp EQUAL &kp PLUS  &ct_al_t
+              &kp LGUI  &trans    &trans    &kp SLCK  &kp TILDE &kp GRAVE       &trans    &kp MINUS &kp UNDER &kp EQUAL &kp PLUS  &kp RSHFT
           // └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
           //                               │         │         │         │     │         │         │         │
                                             &kp LSHFT &kp SPACE &to 2           &to 0     &kp BSPC  &kp RCTRL
@@ -58,7 +50,7 @@
               &kp ESC   &trans     &mmv MOVE_LEFT &mmv MOVE_UP   &mmv MOVE_DOWN &mmv MOVE_RIGHT       &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &trans    &trans
           // ├─────────┼──────────┼──────────────┼──────────────┼──────────────┼───────────────┤     ├────────────┼────────────┼────────────┼────────────┼─────────┼──────────┤ 
           // │         │          │              │              │              │               │     │            │            │            │            │         │          │
-              &kp LGUI  &bt BT_CLR &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_NXT            &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &trans    &ct_al_t
+              &kp LGUI  &bt BT_CLR &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_NXT            &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &trans    &kp RSFT
           // └─────────┴──────────┴──────────────┼──────────────┼──────────────┼───────────────┤     ├────────────┼────────────┼────────────┼────────────┴─────────┴──────────┘
           //                                     │              │              │               │     │            │            │            │
                                                   &kp LSHFT      &mkp LCLK      &to 3                 &to 0        &mkp RCLK    &kp RCTRL
