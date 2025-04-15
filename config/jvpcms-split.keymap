@@ -15,16 +15,16 @@
         };
       };
       macros {
-        ct_al_t {
+        ct_al_t: ct_al_t {
           compatible = "zmk,behavior-macro";
           #binding-cells = <0>;
-          bindings = <
-          &macro_press &kp LCTRL
-          &macro_press &kp LALT
-          &macro_tap &kp T
-          &macro_release &kp LALT
-          &macro_release &kp LCTRL
-          >;
+          bindings
+          = <&macro_press &kp LCTRL>
+          , <&macro_press &kp LALT>
+          , <&macro_tap &kp T>
+          , <&macro_release &kp LALT>
+          , <&macro_release &kp LCTRL>
+          ;
         };
       };
       default_layer {
