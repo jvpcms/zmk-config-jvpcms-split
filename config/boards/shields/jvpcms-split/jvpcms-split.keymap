@@ -45,7 +45,7 @@
             &kp LGUI  &kp Z     &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &ct_al_t
         // └─────────┴─────────┴─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┴─────────┴─────────┘
         //                               │         │          │         │     │         │          │         │ 
-                                          &kp LSHFT &kp SPACE  &to FST         &to 2     &kp BSPC   &kp RCTRL
+                                          &kp LSHFT &kp SPACE  &to FST         &kp DEL   &kp BSPC   &kp RCTRL
         //                               └─────────┴──────────┴─────────┘     └─────────┴──────────┴─────────┘ 
         >;
       };
