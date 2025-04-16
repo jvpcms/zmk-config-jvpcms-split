@@ -10,7 +10,6 @@
 / {
     behaviors {
       m_mv_r: mouse_right {
-        label = "Move Right";
         compatible = "zmk,behavior-mouse-move";
         #binding-cells = <1>;
         direction = <1 0>;
