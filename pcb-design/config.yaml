@@ -1,0 +1,405 @@
+# jvpcms reversible
+units:
+
+  kx: cx
+  ky: cy
+
+  gapX: 0.75
+  gapY: 0.75
+
+  px: kx + gapX
+  py: ky + gapY
+
+  # fingers
+  stgPinkyOuter: 1
+  stgRingPinky: 11
+  stgMiddleRing: 2
+  stgIndexMiddle: -16
+  stgInnerIndex: 0
+
+  outerSplay: 0
+  pinkySplay: 0
+  ringSplay: 0
+  middleSplay: 0
+  indexSplay: 0
+  innerSplay: 0
+
+  # thumbs
+  nearSplay: 0
+  homeSplay: -42
+  farSplay: -10
+
+  thumbOrginShiftX: 0
+  thumbOrginShiftY: 0  # 42
+
+  # thumbHomeShiftX: thumbOrginShiftX + 24 - px
+  # thumbHomeShiftY: -6
+  thumbHomeShiftX: 8.09 
+  thumbHomeShiftY: -3.872 
+
+  # thumbFarShiftX: 16 - px
+  # thumbFarShiftY: -24
+  thumbFarShiftX: 10.685
+  thumbFarShiftY: -3.746
+
+  # board
+  boardPadding: 2
+
+  deltaX: (kx/2)
+  deltaY: (ky/2)
+
+  deltaInnerX: deltaX - boardPadding
+  deltaInnerY: deltaY - boardPadding
+
+  deltaOuterX: deltaX + boardPadding
+  deltaOuterY: deltaY + boardPadding
+
+
+points:
+  zones:
+    matrix:
+      key:
+        padding: py
+        spread: px
+
+        width: kx
+        height: ky
+
+      columns:
+        outer:
+          rows.mod.skip: true
+
+          key:
+            splay: outerSplay
+            column_net: P8
+
+        pinky:
+          rows.mod.skip: true
+
+          key:
+            stagger: stgPinkyOuter
+            splay: pinkySplay
+            column_net: P7
+
+        ring:
+          rows.mod.skip: true
+
+          key:
+            stagger: stgRingPinky
+            splay: ringSplay
+            column_net: P6
+
+        middle:
+          rows.mod.skip: true
+
+          key:
+            stagger: stgMiddleRing
+            splay: middleSplay
+            column_net: P5
+
+        index:
+          rows.mod.skip: true
+
+          key:
+            stagger: stgIndexMiddle
+            splay: indexSplay
+            column_net: P4
+
+        inner:
+          rows.mod.skip: true
+
+          key:
+            stagger: stgInnerIndex
+            splay: innerSplay
+            column_net: P3
+
+      rows:
+        mod:
+        bottom:
+          row_net: P2
+        home:
+          row_net: P0
+        top:
+          row_net: P1
+    
+    thumbs:
+      key:
+        padding: py
+        spread: px
+      anchor:
+        ref: matrix_inner_mod
+        shift: [thumbOrginShiftX, thumbOrginShiftY]
+      columns:
+        near:
+          key:
+            splay: nearSplay
+
+            column_net: P5
+        home:
+          key:
+            splay: homeSplay
+            shift: [thumbHomeShiftX, thumbHomeShiftY]
+
+            column_net: P4
+        far:
+          key:
+            splay: farSplay
+            shift: [thumbFarShiftX, thumbFarShiftY]
+
+            column_net: P3
+      rows:
+        cluster:
+            row_net: P9
+
+    mountscrew_top_left:
+      anchor:
+        ref.aggregate.parts: [matrix_outer_top, matrix_pinky_top, matrix_outer_home, matrix_pinky_home]
+        shift: [0, 0]
+      columns.screw.key.tags: [screw]
+    mountscrew_bottom_left:
+      anchor:
+        ref.aggregate.parts: [matrix_outer_bottom, matrix_pinky_bottom, matrix_outer_home, matrix_pinky_home]
+        shift: [0, 0]
+      columns.screw.key.tags: [screw]
+    mountscrew_center:
+      anchor:
+        ref.aggregate.parts: [matrix_ring_top, matrix_middle_home]
+        shift: [-0.355, -0.985]
+      columns.screw.key.tags: [screw]
+    mountscrew_far_right:
+      anchor:
+        ref: matrix_inner_top
+        shift: [px+4.140, -boardPadding-26.350]
+      columns.screw.key.tags: [screw]
+    mountscrew_top_right:
+      anchor:
+        ref.aggregate.parts: [matrix_index_top, matrix_inner_top, matrix_index_home, matrix_inner_home]
+        shift: [0, 0]
+      columns.screw.key.tags: [screw]
+    mountscrew_thumbs:
+      anchor:
+        ref.aggregate.parts: [thumbs_home_cluster, thumbs_far_cluster]
+        shift: [0, 0]
+      columns.screw.key.tags: [screw]
+
+
+outlines:
+  keys:
+    - what: rectangle
+      where: [/^matrix_.*/, /^thumbs_.*/]
+      size: [14, 14]
+      fillet: 0
+
+  keys_caps:
+    - what: rectangle
+      where: [/^matrix_.*/, /^thumbs_.*/] 
+      size: [px, py]
+      fillet: 0
+
+  plate_outline:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: thumbs_near_cluster
+          shift: [deltaOuterX,deltaOuterY] 
+        - ref: thumbs_near_cluster
+          shift: [deltaOuterX+8,deltaOuterY]  
+        - ref: thumbs_near_cluster
+          shift: [deltaOuterX+26,deltaOuterY-17]  
+        - ref: thumbs_far_cluster
+          shift: [deltaOuterX,deltaOuterY]
+        - ref: thumbs_far_cluster
+          shift: [deltaOuterX,-deltaOuterY]
+        - ref: thumbs_near_cluster
+          shift: [deltaInnerX,-deltaOuterY]
+        - ref: thumbs_near_cluster
+          shift: [-deltaOuterX,-deltaOuterY]
+        - ref: matrix_inner_bottom
+          shift: [-deltaOuterX-2,-deltaOuterY]
+        - ref: matrix_index_bottom
+          shift: [-deltaOuterX,-deltaOuterY]
+        - ref: matrix_middle_bottom
+          shift: [deltaInnerX-2,-deltaOuterY-stgMiddleRing]
+        - ref: matrix_ring_bottom
+          shift: [-deltaInnerX+2,-deltaOuterY]
+        - ref: matrix_pinky_bottom
+          shift: [deltaOuterX,-deltaOuterY-stgPinkyOuter-2]
+        - ref: matrix_outer_bottom
+          shift: [-deltaOuterX,-deltaOuterY-2]
+        - ref: matrix_outer_top
+          shift: [-deltaOuterX,deltaOuterY+1]
+        - ref: matrix_pinky_top
+          shift: [deltaInnerX,deltaOuterY]
+        - ref: matrix_ring_top
+          shift: [-deltaOuterX,deltaOuterY+2]
+        - ref: matrix_middle_top
+          shift: [-deltaOuterX,deltaOuterY]
+        - ref: matrix_middle_top
+          shift: [deltaOuterX,deltaOuterY]
+        - ref: matrix_index_top
+          shift: [-deltaInnerX,deltaOuterY]
+        - ref: matrix_inner_top
+          shift: [deltaOuterX,deltaOuterY]  
+
+      fillet: 2 
+
+  board_outline:
+    - what: polygon
+      operation: stack
+      points:
+
+        - ref: thumbs_near_cluster
+          shift: [deltaOuterX+26,deltaOuterY-17]  
+        - ref: thumbs_far_cluster
+          shift: [deltaOuterX,deltaOuterY]
+        - ref: thumbs_far_cluster
+          shift: [deltaOuterX,-deltaOuterY]
+        - ref: thumbs_near_cluster
+          shift: [deltaInnerX,-deltaOuterY]
+        - ref: thumbs_near_cluster
+          shift: [-deltaOuterX,-deltaOuterY]
+        - ref: matrix_inner_bottom
+          shift: [-deltaOuterX-2,-deltaOuterY]
+        - ref: matrix_outer_bottom
+          shift: [-deltaOuterX,-deltaOuterY-2]
+        - ref: matrix_outer_top
+          shift: [-deltaOuterX,deltaOuterY+1]
+        - ref: matrix_pinky_top
+          shift: [deltaInnerX,deltaOuterY]
+        - ref: matrix_ring_top
+          shift: [-deltaOuterX,deltaOuterY+2]
+        - ref: matrix_middle_top
+          shift: [-deltaOuterX,deltaOuterY]
+        - ref: matrix_middle_top
+          shift: [deltaOuterX,deltaOuterY]
+        - ref: matrix_index_top
+          shift: [-deltaInnerX,deltaOuterY]
+        - ref: matrix_inner_top
+          shift: [deltaOuterX+26,deltaOuterY]  
+
+      fillet: 2  
+
+  plate:
+    - name: plate_outline
+    - operation: subtract
+      name: keys
+pcbs:
+  main:
+    outlines:
+      main:
+        outline: board_outline 
+    footprints:
+
+      keyswitches:
+        what: choc
+        where: [/^matrix_.*/, /^thumbs_.*/]
+        params:
+          keycaps: true
+          reverse: true
+          hotswap: true 
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+
+      diode:
+        what: diode
+        where: [/^matrix_.*/, /^thumbs_.*/]
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+
+      promicro:
+        what: promicro_pretty
+        where:
+          ref: matrix_inner_top
+          shift: [px+4.140, -boardPadding-3.46]
+        params:
+          reversable_pins: 13
+
+
+      # Battery jack
+      battery_connector:
+        what: jst-s2b-ph-kl
+        where:
+          ref: matrix_inner_home
+          shift: [px, -27]
+          rotate: -135
+        params:
+            neg: B-
+            pos: pos
+
+      # Reset switch
+      reset:
+        what: wuerth-434121025816 
+        where:
+          ref: matrix_inner_home
+          shift: [25.729, -18]
+          rotate: 90
+        params:
+            r1: RST
+            r2: GND
+
+      # Battery on/off switch
+      battery_switch:
+        what: pcm12 
+        where:
+          ref: matrix_inner_home
+          shift: [34.81, -18]
+          rotate: 90
+        params:
+          from: pos
+          to: B+
+
+      # Mounting holes
+      screws:
+        what: mounting_hole
+        params:
+        where: [screw]
+
+      # Write on pcb
+      front_text: &text
+        what: text
+        where: &textWhere
+          ref.aggregate.parts: [matrix_ring_bottom, matrix_middle_bottom]
+          shift: [-3.8225, -py]
+        params: &textParams
+            text: jvpcms
+            justify: left
+            h_size: 1.5
+            v_size: 1.5
+            thickness: 0.3
+      back_text:
+          <<: *text
+          where:
+              <<: *textWhere
+              shift: [3.8225, -py]
+          params:
+              <<: *textParams
+              layer: B.SilkS
+              justify: left mirror
+
+  plate:
+    outlines:
+      main:
+        outline: plate
+
+    footprints:
+      screws:
+        what: mounting_hole
+        params:
+          drill: 4.3
+          outline: 0.4
+        where: [screw]
+
+  bottom:
+    outlines:
+      main:
+        outline: board_outline 
+
+    footprints:
+      screws:
+        what: mounting_hole
+        params:
+        where: [screw]
+
