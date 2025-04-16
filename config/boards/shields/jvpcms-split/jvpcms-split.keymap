@@ -12,7 +12,7 @@
 #undef MOVE_DOWN
 #undef MOVE_LEFT
 #undef MOVE_RIGHT
-#define MOVE_UP MOVE_X(-U_MOUSE_MOVE_MAX)
+#define MOVE_UP MOVE_Y(-U_MOUSE_MOVE_MAX)
 #define MOVE_DOWN MOVE_Y(U_MOUSE_MOVE_MAX)
 #define MOVE_LEFT MOVE_X(-U_MOUSE_MOVE_MAX)
 #define MOVE_RIGHT MOVE_X(U_MOUSE_MOVE_MAX)
@@ -21,8 +21,21 @@
 	time-to-max-speed-ms = <400>;
 };
 
-/ {
+#define U_MOUSE_SCROLL_MAX 100
+#undef SCROLL_UP
+#undef SCROLL_DOWN
+#undef SCROLL_LEFT
+#undef SCROLL_RIGHT
+#define SCROLL_UP MOVE_Y(U_MOUSE_SCROLL_MAX)
+#define SCROLL_DOWN MOVE_Y(-U_MOUSE_SCROLL_MAX)
+#define SCROLL_LEFT MOVE_X(-U_MOUSE_SCROLL_MAX)
+#define SCROLL_RIGHT MOVE_X(U_MOUSE_SCROLL_MAX)
 
+&msc {
+  time-to-max-speed-ms = <500>;
+};
+
+/ {
     behaviors {
       td_f_alt: tap_dance_left_alt {
         compatible = "zmk,behavior-tap-dance";
