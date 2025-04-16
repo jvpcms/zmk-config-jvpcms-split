@@ -118,13 +118,13 @@
         bindings = <
           // ┌─────────┬──────────┬──────────────────┬───────────────────┬────────────────────┬──────────────┐     ┌────────────┬────────────┬────────────┬────────────┬─────────┬──────────┐ 
           // │         │          │                  │                   │                    │              │     │            │            │            │            │         │          │ 
-              &kp TAB   &trans     &trans             &mmv MOVE_UP        &trans               &msc SCRL_UP         &kp K_VOL_DN &kp K_VOL_UP &kp C_BRI_DN &kp C_BRI_UP &kp PSCRN &trans
+              &kp TAB   &bt BT_SEL 2 &trans           &mmv MOVE_UP        &trans               &msc SCRL_UP         &kp K_VOL_DN &kp K_VOL_UP &kp C_BRI_DN &kp C_BRI_UP &kp PSCRN &bt BT_NXT 
           // ├─────────┼──────────┼──────────────────┼───────────────────┼────────────────────┼──────────────┤     ├────────────┼────────────┼────────────┼────────────┼─────────┼──────────┤ 
           // │         │          │                  │                   │                    │              │     │            │            │            │            │         │          │ 
-              &kp ESC   &trans     &mmv MOVE_LEFT     &mmv MOVE_DOWN      &mmv MOVE_RIGHT      &msc SCRL_DOWN       &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &trans    &trans
+              &kp ESC   &bt BT_SEL 1 &mmv MOVE_LEFT   &mmv MOVE_DOWN      &mmv MOVE_RIGHT      &msc SCRL_DOWN       &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &trans    &bt BT_CLR 
           // ├─────────┼──────────┼──────────────────┼───────────────────┼────────────────────┼──────────────┤     ├────────────┼────────────┼────────────┼────────────┼─────────┼──────────┤ 
           // │         │          │                  │                   │                    │              │     │            │            │            │            │         │          │
-              &kp LGUI  &bt BT_CLR &bt BT_SEL 0       &bt BT_SEL 1        &bt BT_SEL 2         &bt BT_NXT           &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &trans    &ct_al_t
+              &kp LGUI  &bt BT_SEL 0 &trans           &trans              &trans               &trans               &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &trans    &ct_al_t
           // └─────────┴──────────┴──────────────────┼───────────────────┼────────────────────┼──────────────┤     ├────────────┼────────────┼────────────┼────────────┴─────────┴──────────┘
           //                                         │                   │                    │              │     │            │            │            │
                                                       &mkp LCLK           &kp LSHFT            &td_layer            &to DEF      &kp RCTRL    &mkp RCLK 
