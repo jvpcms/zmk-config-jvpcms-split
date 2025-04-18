@@ -19,7 +19,7 @@
 
 &mmv {
 	time-to-max-speed-ms = <700>;
-  acceleration-exponent = <1>
+  acceleration-exponent = <1>;
 };
 
 // #define U_MOUSE_SCROLL_MAX 100
