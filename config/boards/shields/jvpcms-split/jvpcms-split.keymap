@@ -18,7 +18,8 @@
 #define MOVE_RIGHT MOVE_X(U_MOUSE_MOVE_MAX)
 
 &mmv {
-	time-to-max-speed-ms = <400>;
+	time-to-max-speed-ms = <700>;
+  acceleration-exponent = <1>
 };
 
 // #define U_MOUSE_SCROLL_MAX 100
@@ -60,7 +61,7 @@
       compatible = "zmk,combos";
       combo_enter {
         timeout-ms = <50>;
-        key-positions = <19 20>;
+        key-positions = <16 15>;
         bindings = <&kp ENTER>;
       };
     };
@@ -87,13 +88,13 @@
             &kp TAB   &kp Q     &kp W     &kp E     &kp R      &kp T           &kp Y     &kp U      &kp I     &kp O     &kp P     &kp LBKT
         // ├─────────┼─────────┼─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┼─────────┼─────────┤
         // │         │         │         │         │          │         │     │         │          │         │         │         │         │
-            &kp ESC   &kp A     &kp S     &kp D     &td_f_alt  &kp G           &kp H     &td_j_alt  &kp K     &kp L     &kp SEMI  &kp SQT
+            &mt LALT ESC &kp A  &kp S     &kp D     &kp F      &kp G           &kp H     &kp J      &kp K     &kp L     &kp SEMI  &mt RALT SQT
         // ├─────────┼─────────┼─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┼─────────┼─────────┤
         // │         │         │         │         │          │         │     │         │          │         │         │         │         │
             &kp LGUI  &kp Z     &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &ct_al_t
         // └─────────┴─────────┴─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┴─────────┴─────────┘
         //                               │         │          │         │     │         │          │         │ 
-                                          &kp SPACE &kp LSHFT  &td_layer       &kp DEL   &kp RCTRL  &kp BSPC
+                                          &kp SPACE &kp LCTR  &td_layer       &kp DEL   &kp RSHFT  &kp BSPC
         //                               └─────────┴──────────┴─────────┘     └─────────┴──────────┴─────────┘ 
         >;
       };
@@ -104,13 +105,13 @@
               &kp TAB   &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT       &kp CARET &kp AMPS  &kp ASTRK &kp LPAR  &kp RPAR  &kp RBKT
           // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
           // │         │         │         │         │         │         │     │         │         │         │         │         │         │
-              &kp ESC   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5          &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp BSLH
+              &mt LALT ESC &kp N1 &kp N2    &kp N3    &kp N4    &kp N5          &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &mt RALT BSLH
           // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
           // │         │         │         │         │         │         │     │         │         │         │         │         │         │
-              &kp LGUI  &trans    &trans    &trans    &kp SLCK  &trans          &trans    &kp MINUS &kp EQUAL &kp GRAVE &trans    &ct_al_t 
+              &kp LGUI  &trans    &trans    &kp INS   &kp SLCK  &trans          &trans    &kp MINUS &kp EQUAL &kp GRAVE &trans    &ct_al_t 
           // └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
           //                               │         │         │         │     │         │         │         │
-                                            &kp SPACE &kp LSHFT &td_layer       &to DEF   &kp RCTRL &kp BSPC  
+                                            &kp SPACE &kp LCTR &td_layer       &to DEF   &kp RSHFT &kp BSPC  
           //                               └─────────┴─────────┴─────────┘     └─────────┴─────────┴─────────┘
         >;
       };
@@ -121,13 +122,13 @@
               &kp TAB   &bt BT_SEL 2 &trans           &mmv MOVE_UP        &trans               &msc SCRL_UP         &kp K_VOL_DN &kp K_VOL_UP &kp C_BRI_DN &kp C_BRI_UP &kp PSCRN &bt BT_NXT 
           // ├─────────┼──────────┼──────────────────┼───────────────────┼────────────────────┼──────────────┤     ├────────────┼────────────┼────────────┼────────────┼─────────┼──────────┤ 
           // │         │          │                  │                   │                    │              │     │            │            │            │            │         │          │ 
-              &kp ESC   &bt BT_SEL 1 &mmv MOVE_LEFT   &mmv MOVE_DOWN      &mmv MOVE_RIGHT      &msc SCRL_DOWN       &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &trans    &bt BT_CLR 
+              &mt LALT ESC &bt BT_SEL 1 &mmv MOVE_LEFT &mmv MOVE_DOWN     &mmv MOVE_RIGHT      &msc SCRL_DOWN       &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &trans    &bt BT_CLR 
           // ├─────────┼──────────┼──────────────────┼───────────────────┼────────────────────┼──────────────┤     ├────────────┼────────────┼────────────┼────────────┼─────────┼──────────┤ 
           // │         │          │                  │                   │                    │              │     │            │            │            │            │         │          │
               &kp LGUI  &bt BT_SEL 0 &trans           &trans              &trans               &trans               &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &trans    &ct_al_t
           // └─────────┴──────────┴──────────────────┼───────────────────┼────────────────────┼──────────────┤     ├────────────┼────────────┼────────────┼────────────┴─────────┴──────────┘
           //                                         │                   │                    │              │     │            │            │            │
-                                                      &mkp LCLK           &kp LSHFT            &td_layer            &to DEF      &kp RCTRL    &mkp RCLK 
+                                                      &mkp LCLK           &kp LCTR            &td_layer            &to DEF      &kp RSHFT    &mkp RCLK 
           //                                         └───────────────────┴────────────────────┴──────────────┘     └────────────┴────────────┴────────────┘
         >;
       };
