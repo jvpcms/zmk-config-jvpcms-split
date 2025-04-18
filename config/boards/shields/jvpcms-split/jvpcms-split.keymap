@@ -19,22 +19,22 @@
 
 &mmv {
 	time-to-max-speed-ms = <700>;
-  acceleration-exponent = <1>;
+  acceleration-exponent = <2>;
 };
 
-// #define U_MOUSE_SCROLL_MAX 100
-// #undef SCROLL_UP
-// #undef SCROLL_DOWN
-// #undef SCROLL_LEFT
-// #undef SCROLL_RIGHT
-// #define SCROLL_UP MOVE_Y(U_MOUSE_SCROLL_MAX)
-// #define SCROLL_DOWN MOVE_Y(-U_MOUSE_SCROLL_MAX)
-// #define SCROLL_LEFT MOVE_X(-U_MOUSE_SCROLL_MAX)
-// #define SCROLL_RIGHT MOVE_X(U_MOUSE_SCROLL_MAX)
-// 
-// &msc {
-  // time-to-max-speed-ms = <500>;
-// };
+#define U_MOUSE_SCROLL_MAX 100
+#undef SCROLL_UP
+#undef SCROLL_DOWN
+#undef SCROLL_LEFT
+#undef SCROLL_RIGHT
+#define SCROLL_UP MOVE_Y(U_MOUSE_SCROLL_MAX)
+#define SCROLL_DOWN MOVE_Y(-U_MOUSE_SCROLL_MAX)
+#define SCROLL_LEFT MOVE_X(-U_MOUSE_SCROLL_MAX)
+#define SCROLL_RIGHT MOVE_X(U_MOUSE_SCROLL_MAX)
+
+&msc {
+  time-to-max-speed-ms = <500>;
+};
 
 / {
     behaviors {
@@ -94,7 +94,7 @@
             &kp LGUI  &kp Z     &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &ct_al_t
         // └─────────┴─────────┴─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┴─────────┴─────────┘
         //                               │         │          │         │     │         │          │         │ 
-                                          &kp SPACE &kp LCTR  &td_layer       &kp DEL   &kp RSHFT  &kp BSPC
+                                          &kp SPACE &kp LCTRL   &td_layer       &kp DEL   &kp RSHFT  &kp BSPC
         //                               └─────────┴──────────┴─────────┘     └─────────┴──────────┴─────────┘ 
         >;
       };
@@ -111,7 +111,7 @@
               &kp LGUI  &trans    &trans    &kp INS   &kp SLCK  &trans          &trans    &kp MINUS &kp EQUAL &kp GRAVE &trans    &ct_al_t 
           // └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
           //                               │         │         │         │     │         │         │         │
-                                            &kp SPACE &kp LCTR &td_layer       &to DEF   &kp RSHFT &kp BSPC  
+                                            &kp SPACE &kp LCTRL  &td_layer       &to DEF   &kp RSHFT &kp BSPC  
           //                               └─────────┴─────────┴─────────┘     └─────────┴─────────┴─────────┘
         >;
       };
@@ -128,7 +128,7 @@
               &kp LGUI  &bt BT_SEL 0 &trans           &trans              &trans               &trans               &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &trans    &ct_al_t
           // └─────────┴──────────┴──────────────────┼───────────────────┼────────────────────┼──────────────┤     ├────────────┼────────────┼────────────┼────────────┴─────────┴──────────┘
           //                                         │                   │                    │              │     │            │            │            │
-                                                      &mkp LCLK           &kp LCTR            &td_layer            &to DEF      &kp RSHFT    &mkp RCLK 
+                                                      &mkp LCLK           &kp LCTRL             &td_layer            &to DEF      &kp RSHFT    &mkp RCLK 
           //                                         └───────────────────┴────────────────────┴──────────────┘     └────────────┴────────────┴────────────┘
         >;
       };
