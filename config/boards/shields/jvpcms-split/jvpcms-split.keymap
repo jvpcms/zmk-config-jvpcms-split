@@ -77,10 +77,10 @@
             &kp TAB   &kp Q     &kp W     &kp E     &kp R      &kp T           &kp Y     &kp U      &kp I     &kp O     &kp P     &kp LBKT
         // ├─────────┼─────────┼─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┼─────────┼─────────┤
         // │         │         │         │         │          │         │     │         │          │         │         │         │         │
-            &mt LALT ESC &kp A  &kp S     &kp D     &kp F      &kp G           &kp H     &kp J      &kp K     &kp L     &kp SEMI  &mt RALT SQT
+            &kp ESC   &kp A     &kp S     &kp D     &kp F      &kp G           &kp H     &kp J      &kp K     &kp L     &kp SEMI  &kp SQT
         // ├─────────┼─────────┼─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┼─────────┼─────────┤
         // │         │         │         │         │          │         │     │         │          │         │         │         │         │
-            &kp LGUI  &kp Z     &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &ct_al_t
+            &mt LALT LGUI &kp Z &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &mt LALT LC(LA(T))
         // └─────────┴─────────┴─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┴─────────┴─────────┘
         //                               │         │          │         │     │         │          │         │ 
                                           &kp SPACE &kp LCTRL   &td_layer       &kp DEL   &kp RSHFT  &kp BSPC
@@ -94,10 +94,10 @@
               &kp TAB   &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT       &kp CARET &kp AMPS  &kp ASTRK &kp LPAR  &kp RPAR  &kp RBKT
           // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
           // │         │         │         │         │         │         │     │         │         │         │         │         │         │
-              &mt LALT ESC &kp N1 &kp N2    &kp N3    &kp N4    &kp N5          &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &mt RALT BSLH
+              &kp ESC   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5          &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp BSLH
           // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
           // │         │         │         │         │         │         │     │         │         │         │         │         │         │
-              &kp LGUI  &trans    &trans    &kp INS   &kp SLCK  &trans          &trans    &kp MINUS &kp EQUAL &kp GRAVE &trans    &ct_al_t 
+              &mt LALT LGUI &trans &trans    &kp INS   &kp SLCK  &trans          &trans    &kp MINUS &kp EQUAL &kp GRAVE &trans   &mt LALT LC(LA(T)) 
           // └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
           //                               │         │         │         │     │         │         │         │
                                             &kp SPACE &kp LCTRL  &td_layer       &to DEF   &kp RSHFT &kp BSPC  
@@ -111,10 +111,10 @@
               &kp TAB   &trans       &trans           &mmv MOVE_UP        &trans               &msc SCRL_UP         &kp K_VOL_DN &kp K_VOL_UP &kp C_BRI_DN &kp C_BRI_UP &kp PSCRN &trans    
           // ├─────────┼──────────┼──────────────────┼───────────────────┼────────────────────┼──────────────┤     ├────────────┼────────────┼────────────┼────────────┼─────────┼──────────┤ 
           // │         │          │                  │                   │                    │              │     │            │            │            │            │         │          │ 
-              &mt LALT ESC &trans  &mmv MOVE_LEFT     &mmv MOVE_DOWN      &mmv MOVE_RIGHT      &msc SCRL_DOWN       &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &trans    &trans 
+              &kp ESC   &trans     &mmv MOVE_LEFT     &mmv MOVE_DOWN      &mmv MOVE_RIGHT      &msc SCRL_DOWN       &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &trans    &trans 
           // ├─────────┼──────────┼──────────────────┼───────────────────┼────────────────────┼──────────────┤     ├────────────┼────────────┼────────────┼────────────┼─────────┼──────────┤ 
           // │         │          │                  │                   │                    │              │     │            │            │            │            │         │          │
-              &kp LGUI  &trans     &trans             &trans              &trans               &trans               &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &trans    &ct_al_t
+              &mt LALT LGUI &trans &trans             &trans              &trans               &trans               &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &trans    &mt LALT LC(LA(T)) 
           // └─────────┴──────────┴──────────────────┼───────────────────┼────────────────────┼──────────────┤     ├────────────┼────────────┼────────────┼────────────┴─────────┴──────────┘
           //                                         │                   │                    │              │     │            │            │            │
                                                       &mkp LCLK           &kp LCTRL            &td_layer            &to DEF      &kp RSHFT    &mkp RCLK 
