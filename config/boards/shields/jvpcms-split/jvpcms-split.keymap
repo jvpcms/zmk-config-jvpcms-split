@@ -53,19 +53,11 @@
         key-positions = <16 15>;
         bindings = <&kp ENTER>;
       };
-    };
-    macros {
-      ct_al_t: ct_al_t {
-        label = "ct_al_t";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings 
-        = <&macro_press &kp LCTRL>
-        , <&macro_press &kp LALT>
-        , <&macro_tap &kp T>
-        , <&macro_release &kp LALT>
-        , <&macro_release &kp LCTRL>
-        ;
+      combo_mclk {
+        timeout-ms = <50>;
+        key-positions = <36 41>;
+        bindings = <&mkp MCLK>;
+        layers = <SND>;
       };
     };
     keymap {
@@ -80,7 +72,7 @@
             &kp ESC   &kp A     &kp S     &kp D     &kp F      &kp G           &kp H     &kp J      &kp K     &kp L     &kp SEMI  &kp SQT
         // ├─────────┼─────────┼─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┼─────────┼─────────┤
         // │         │         │         │         │          │         │     │         │          │         │         │         │         │
-            &mt LALT LGUI &kp Z &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &mt LALT LC(LA(T))
+            &kp LGUI  &kp Z     &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &mt LALT LC(LA(T))
         // └─────────┴─────────┴─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┴─────────┴─────────┘
         //                               │         │          │         │     │         │          │         │ 
                                           &kp SPACE &kp LCTRL   &td_layer       &kp DEL   &kp RSHFT  &kp BSPC
@@ -97,7 +89,7 @@
               &kp ESC   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5          &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp BSLH
           // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
           // │         │         │         │         │         │         │     │         │         │         │         │         │         │
-              &mt LALT LGUI &trans &trans    &kp INS   &kp SLCK  &trans          &trans    &kp MINUS &kp EQUAL &kp GRAVE &trans   &mt LALT LC(LA(T)) 
+              &kp LGUI  &trans    &trans    &kp INS   &kp SLCK  &trans          &trans    &kp MINUS &kp EQUAL &kp GRAVE &trans   &mt LALT LC(LA(T)) 
           // └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
           //                               │         │         │         │     │         │         │         │
                                             &kp SPACE &kp LCTRL  &td_layer       &to DEF   &kp RSHFT &kp BSPC  
@@ -114,7 +106,7 @@
               &kp ESC   &trans     &mmv MOVE_LEFT     &mmv MOVE_DOWN      &mmv MOVE_RIGHT      &msc SCRL_DOWN       &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &trans    &trans 
           // ├─────────┼──────────┼──────────────────┼───────────────────┼────────────────────┼──────────────┤     ├────────────┼────────────┼────────────┼────────────┼─────────┼──────────┤ 
           // │         │          │                  │                   │                    │              │     │            │            │            │            │         │          │
-              &mt LALT LGUI &trans &trans             &trans              &trans               &trans               &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &trans    &mt LALT LC(LA(T)) 
+              &kp LGUI  &trans     &trans             &trans              &trans               &trans               &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &trans    &mt LALT LC(LA(T)) 
           // └─────────┴──────────┴──────────────────┼───────────────────┼────────────────────┼──────────────┤     ├────────────┼────────────┼────────────┼────────────┴─────────┴──────────┘
           //                                         │                   │                    │              │     │            │            │            │
                                                       &mkp LCLK           &kp LCTRL            &td_layer            &to DEF      &kp RSHFT    &mkp RCLK 
