@@ -85,7 +85,7 @@
             &kp LGUI  &kp Z     &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &mt LALT terminal 
         // └─────────┴─────────┴─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┴─────────┴─────────┘
         //                               │         │          │         │     │         │          │         │ 
-                                          &kp SPACE &kp LSHFT  &td_layer       &lcht DEL FST  &kp RSHFT  &kp BSPC
+                                          &kp SPACE &kp LSHFT  &td_layer       &mt RCTR DEL &kp RSHFT  &kp BSPC
         //                               └─────────┴──────────┴─────────┘     └─────────┴──────────┴─────────┘ 
         >;
       };
@@ -102,7 +102,7 @@
               &kp LGUI  &trans    &trans    &kp INS   &kp SLCK  &trans          &trans    &kp MINUS &kp EQUAL &kp GRAVE &trans   &mt LALT terminal 
           // └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
           //                               │         │         │         │     │         │         │         │
-                                            &kp SPACE &kp LSHFT  &td_layer       &to DEF  &kp RSHFT &kp BSPC  
+                                            &kp SPACE &kp LSHFT  &td_layer       &lcht RCTR DEF  &kp RSHFT &kp BSPC  
           //                               └─────────┴─────────┴─────────┘     └─────────┴─────────┴─────────┘
         >;
       };
@@ -119,7 +119,7 @@
               &kp LGUI  &trans     &trans             &trans              &trans               &trans               &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &trans    &mt LALT terminal 
           // └─────────┴──────────┴──────────────────┼───────────────────┼────────────────────┼──────────────┤     ├────────────┼────────────┼────────────┼────────────┴─────────┴──────────┘
           //                                         │                   │                    │              │     │            │            │            │
-                                                      &mkp LCLK           &kp LSHFT            &td_layer            &to DEF      &kp RSHFT    &mkp RCLK 
+                                                      &mkp LCLK           &kp LSHFT            &td_layer            &lcht RCTR DEF &kp RSHFT    &mkp RCLK 
           //                                         └───────────────────┴────────────────────┴──────────────┘     └────────────┴────────────┴────────────┘
         >;
       };
