@@ -52,7 +52,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&lcht LCTRL FST>, <&to SND>, <&to BLE>;
+            bindings = <&to FST>, <&to SND>, <&to BLE>;
         };
     };
     combos {
