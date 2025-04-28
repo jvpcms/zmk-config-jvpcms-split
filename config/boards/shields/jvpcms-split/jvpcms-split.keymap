@@ -41,19 +41,19 @@
 
 / {
     behaviors {
-        lcht: mod_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&kp>, <&to>;
-        };
-        /* td_layer: tap_dance_layer { */
-        /*     compatible = "zmk,behavior-tap-dance"; */
-        /*     #binding-cells = <0>; */
+        /* lcht: mod_tap { */
+        /*     compatible = "zmk,behavior-hold-tap"; */
+        /*     #binding-cells = <2>; */
+        /*     flavor = "hold-preferred"; */
         /*     tapping-term-ms = <200>; */
-        /*     bindings = <&lcht LCTRL FST>, <&to SND>, <&to BLE>; */
+        /*     bindings = <&kp>, <&to>; */
         /* }; */
+        td_layer: tap_dance_layer {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&lcht LCTRL FST>, <&to SND>, <&to BLE>;
+        };
     };
     combos {
         compatible = "zmk,combos";
@@ -84,7 +84,7 @@
                     &kp LGUI &kp Z  &kp X  &kp C     &kp V     &kp B        &kp N          &kp M     &kp COMMA &kp DOT &kp FSLH &mt LALT trml
                 // └────────┴──────┴──────┼─────────┼─────────┼─────────┤  ├──────────────┼─────────┼─────────┼───────┴────────┴──────────────┘
                 //                        │         │         │         │  │              │         │         │ 
-                                           &kp SPACE &kp LSHFT &lcht LCTRL FST    &mt RCTRL DEL &kp RSHFT &kp BSPC
+                                           &kp SPACE &kp LSHFT &td_layer    &mt RCTRL DEL &kp RSHFT &kp BSPC
                 //                        └─────────┴─────────┴─────────┘  └──────────────┴─────────┴─────────┘ 
             >;
         };
@@ -101,7 +101,7 @@
                     &kp LGUI  &trans    &trans  &kp INS   &kp SLCK  &trans       &trans          &kp MINUS &kp EQUAL &kp GRAVE &trans   &mt LALT trml 
                 // └─────────┴─────────┴───────┼─────────┼─────────┼─────────┤  ├───────────────┼─────────┼─────────┼─────────┴────────┴──────────────┘
                 //                             │         │         │         │  │               │         │         │
-                                                &kp SPACE &kp LSHFT &lcht LCTRL FST    &lcht RCTRL DEF &kp RSHFT &kp BSPC  
+                                                &kp SPACE &kp LSHFT &td_layer    &lcht RCTRL DEF &kp RSHFT &kp BSPC  
                 //                             └─────────┴─────────┴─────────┘  └───────────────┴─────────┴─────────┘
             >;
         };
@@ -118,7 +118,7 @@
                     &kp LGUI &trans  &trans         &trans         &trans          &trans            &kp HOME        &kp PG_DN    &kp PG_UP    &kp END      &trans    &mt LALT trml 
                 // └────────┴───────┴──────────────┼──────────────┼───────────────┼──────────────┤  ├───────────────┼────────────┼────────────┼────────────┴─────────┴──────────────┘
                 //                                 │              │               │              │  │               │            │            │
-                                                    &mkp LCLK      &kp LSHFT       &lcht LCTRL FST         &lcht RCTRL DEF &kp RSHFT    &mkp RCLK 
+                                                    &mkp LCLK      &kp LSHFT       &td_layer         &lcht RCTRL DEF &kp RSHFT    &mkp RCLK 
                 //                                 └──────────────┴───────────────┴──────────────┘  └───────────────┴────────────┴────────────┘
             >;
         };
