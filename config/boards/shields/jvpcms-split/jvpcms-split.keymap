@@ -41,19 +41,19 @@
 
 / {
     behaviors {
+        lcht: mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&to>;
+            display-name = "Mod-Tap";
+        };
       td_layer: tap_dance_layer {
         compatible = "zmk,behavior-tap-dance";
         #binding-cells = <0>;
         tapping-term-ms = <200>;
         bindings = <&to FST>, <&to SND>, <&to BLE>;
-      };
-      lcmt: mod_tap {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "hold-preferred";
-        tapping-term-ms = <200>;
-        bindings = <&kp>, <&td_layer>;
-        display-name = "Mod-Tap";
       };
     };
     combos {
@@ -85,7 +85,7 @@
             &kp LGUI  &kp Z     &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &mt LALT terminal 
         // └─────────┴─────────┴─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┴─────────┴─────────┘
         //                               │         │          │         │     │         │          │         │ 
-                                          &kp SPACE &kp LSHFT  &lcmt LCTR 0      &kp DEL   &kp RSHFT  &kp BSPC
+                                          &kp SPACE &kp LSHFT  &td_layer       &lcht DEL FST  &kp RSHFT  &kp BSPC
         //                               └─────────┴──────────┴─────────┘     └─────────┴──────────┴─────────┘ 
         >;
       };
