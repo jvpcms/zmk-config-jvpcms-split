@@ -84,7 +84,7 @@
                     &kp LGUI &kp Z  &kp X  &kp C     &kp V     &kp B        &kp N          &kp M     &kp COMMA &kp DOT &kp FSLH &mt LALT trml
                 // └────────┴──────┴──────┼─────────┼─────────┼─────────┤  ├──────────────┼─────────┼─────────┼───────┴────────┴──────────────┘
                 //                        │         │         │         │  │              │         │         │ 
-                                           &kp SPACE &kp LSHFT &kp A    &mt RCTRL DEL  &kp RSHFT &kp BSPC
+                                           &kp SPACE &kp LSHFT &td_layer    &mt RCTRL DEL  &kp RSHFT &kp BSPC
                 //                        └─────────┴─────────┴─────────┘  └──────────────┴─────────┴─────────┘ 
             >;
         };
