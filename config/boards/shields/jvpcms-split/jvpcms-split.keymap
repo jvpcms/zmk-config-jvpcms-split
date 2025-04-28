@@ -47,6 +47,14 @@
         tapping-term-ms = <200>;
         bindings = <&to FST>, <&to SND>, <&to BLE>;
       };
+      lcmt: mod_tap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "hold-preferred";
+        tapping-term-ms = <200>;
+        bindings = <&kp>, <&td_layer>;
+        display-name = "Mod-Tap";
+      };
     };
     combos {
       compatible = "zmk,combos";
@@ -77,7 +85,7 @@
             &kp LGUI  &kp Z     &kp X     &kp C     &kp V      &kp B           &kp N     &kp M      &kp COMMA &kp DOT   &kp FSLH  &mt LALT terminal 
         // └─────────┴─────────┴─────────┼─────────┼──────────┼─────────┤     ├─────────┼──────────┼─────────┼─────────┴─────────┴─────────┘
         //                               │         │          │         │     │         │          │         │ 
-                                          &kp SPACE &kp LSHFT   &td_layer       &kp DEL   &kp RCTRL  &kp BSPC
+                                          &kp SPACE &kp LSHFT  &lcmt LCTR 0      &mt RCTRL DEL   &kp RSHFT  &kp BSPC
         //                               └─────────┴──────────┴─────────┘     └─────────┴──────────┴─────────┘ 
         >;
       };
@@ -94,7 +102,7 @@
               &kp LGUI  &trans    &trans    &kp INS   &kp SLCK  &trans          &trans    &kp MINUS &kp EQUAL &kp GRAVE &trans   &mt LALT terminal 
           // └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
           //                               │         │         │         │     │         │         │         │
-                                            &kp SPACE &kp LSHFT  &td_layer       &to DEF  &kp RCTRL &kp BSPC  
+                                            &kp SPACE &kp LSHFT  &lcmt LCTR 0       &to DEF  &kp RSHFT &kp BSPC  
           //                               └─────────┴─────────┴─────────┘     └─────────┴─────────┴─────────┘
         >;
       };
@@ -111,7 +119,7 @@
               &kp LGUI  &trans     &trans             &trans              &trans               &trans               &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &trans    &mt LALT terminal 
           // └─────────┴──────────┴──────────────────┼───────────────────┼────────────────────┼──────────────┤     ├────────────┼────────────┼────────────┼────────────┴─────────┴──────────┘
           //                                         │                   │                    │              │     │            │            │            │
-                                                      &mkp LCLK           &kp LSHFT            &td_layer            &to DEF      &kp RCTRL    &mkp RCLK 
+                                                      &mkp LCLK           &kp LSHFT            &lcmt LCTR 0            &to DEF      &kp RSHFT    &mkp RCLK 
           //                                         └───────────────────┴────────────────────┴──────────────┘     └────────────┴────────────┴────────────┘
         >;
       };
