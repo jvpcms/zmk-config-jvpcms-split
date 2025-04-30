@@ -39,6 +39,10 @@
     time-to-max-speed-ms = <500>;
 };
 
+&sl {
+    ignore-modifiers;
+};
+
 / {
     behaviors {
         lcht: tap_layer_hold_keypress {
