@@ -4,8 +4,8 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define DEF 0
-#define FST 1
-#define SND 2
+#define NUM 1
+#define MSE 2
 #define BLE 3
 
 #define trml LC(LA(T))
@@ -48,11 +48,11 @@
             tapping-term-ms = <200>;
             bindings = <&kp>, <&to>;
         };
-        td_layer: tap_dance_layer {
+        td_layer: tap_dance_num_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&lcht LCTRL FST>, <&to SND>, <&to BLE>;
+            bindings = <&sl NUM>, <&to NUM>;
         };
     };
     combos {
@@ -62,11 +62,21 @@
             key-positions = <16 15>;
             bindings = <&kp ENTER>;
         };
+        combo_mouse_layer {
+            timeout-ms = <50>;
+            key-positions = <19 20>;
+            bindings = <&to MSE>;
+        };
+        combo_ble_layer {
+            timeout-ms = <50>;
+            key-positions = <7 8>;
+            bindings = <&to BLE>;
+        };
         combo_mclk {
             timeout-ms = <50>;
             key-positions = <36 41>;
             bindings = <&mkp MCLK>;
-            layers = <SND>;
+            layers = <MSE>;
         };
     };
     keymap {
@@ -84,7 +94,7 @@
                     &kp LGUI &kp Z  &kp X  &kp C     &kp V     &kp B        &kp N          &kp M     &kp COMMA &kp DOT &kp FSLH &mt LALT trml
                 // └────────┴──────┴──────┼─────────┼─────────┼─────────┤  ├──────────────┼─────────┼─────────┼───────┴────────┴──────────────┘
                 //                        │         │         │         │  │              │         │         │ 
-                                           &kp SPACE &kp LSHFT &td_layer    &mt RCTRL DEL  &kp RSHFT &kp BSPC
+                                           &kp SPACE &kp LSHFT &td_layer    &kp DEL        &kp RCTRL &kp BSPC
                 //                        └─────────┴─────────┴─────────┘  └──────────────┴─────────┴─────────┘ 
             >;
         };
@@ -101,7 +111,7 @@
                     &kp LGUI  &trans    &trans  &kp INS   &kp SLCK  &trans       &trans          &kp MINUS &kp EQUAL &kp GRAVE &trans   &mt LALT trml 
                 // └─────────┴─────────┴───────┼─────────┼─────────┼─────────┤  ├───────────────┼─────────┼─────────┼─────────┴────────┴──────────────┘
                 //                             │         │         │         │  │               │         │         │
-                                                &kp SPACE &kp LSHFT &td_layer    &lcht RCTRL DEF &kp RSHFT &kp BSPC  
+                                                &kp SPACE &kp LSHFT &td_layer    &to DEF         &kp RCTRL &kp BSPC  
                 //                             └─────────┴─────────┴─────────┘  └───────────────┴─────────┴─────────┘
             >;
         };
@@ -118,7 +128,7 @@
                     &kp LGUI &trans  &trans         &trans         &trans          &trans            &kp HOME        &kp PG_DN    &kp PG_UP    &kp END      &trans    &mt LALT trml 
                 // └────────┴───────┴──────────────┼──────────────┼───────────────┼──────────────┤  ├───────────────┼────────────┼────────────┼────────────┴─────────┴──────────────┘
                 //                                 │              │               │              │  │               │            │            │
-                                                    &mkp LCLK      &kp LSHFT       &td_layer         &lcht RCTRL DEF &kp RSHFT    &mkp RCLK 
+                                                    &mkp LCLK      &kp LSHFT       &td_layer         &to DEF         &kp RCTRL    &mkp RCLK 
                 //                                 └──────────────┴───────────────┴──────────────┘  └───────────────┴────────────┴────────────┘
             >;
         };
