@@ -48,30 +48,56 @@
             tapping-term-ms = <200>;
             bindings = <&kp>, <&to>;
         };
+        // stick layer and to layer
         td_layer: tap_dance_num_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&sl NUM>, <&to NUM>;
         };
+        // ( and ) mod
+        parnt: open_close_parenthesis {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LPAR>, <&kp RPAR>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        // [ and ] mod
+        brakt: open_close_parenthesis {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LBKT>, <&kp RBKT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        // { and } mod
+        brace: open_close_parenthesis {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LBRC>, <&kp RBRC>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
     combos {
         compatible = "zmk,combos";
+        // enter key combo
         combo_enter {
             timeout-ms = <50>;
             key-positions = <16 15>;
             bindings = <&kp ENTER>;
         };
+        // mouse layer combo
         combo_mouse_layer {
             timeout-ms = <50>;
             key-positions = <19 20>;
             bindings = <&to MSE>;
         };
+        // ble layer combo
         combo_ble_layer {
             timeout-ms = <50>;
             key-positions = <7 8>;
             bindings = <&to BLE>;
         };
+        // middle click combo
         combo_mclk {
             timeout-ms = <50>;
             key-positions = <36 41>;
@@ -85,7 +111,7 @@
             bindings = <
                 // ┌────────┬──────┬──────┬─────────┬─────────┬─────────┐  ┌──────────────┬─────────┬─────────┬───────┬────────┬──────────────┐
                 // │        │      │      │         │         │         │  │              │         │         │       │        │              │
-                    &kp TAB  &kp Q  &kp W  &kp E     &kp R     &kp T        &kp Y          &kp U     &kp I     &kp O   &kp P    &kp LBKT
+                    &kp TAB  &kp Q  &kp W  &kp E     &kp R     &kp T        &kp Y          &kp U     &kp I     &kp O   &kp P    &kp MINUS
                 // ├────────┼──────┼──────┼─────────┼─────────┼─────────┤  ├──────────────┼─────────┼─────────┼───────┼────────┼──────────────┤
                 // │        │      │      │         │         │         │  │              │         │         │       │        │              │
                     &kp ESC  &kp A  &kp S  &kp D     &kp F     &kp G        &kp H          &kp J     &kp K     &kp L   &kp SEMI &kp SQT
@@ -94,7 +120,7 @@
                     &kp LGUI &kp Z  &kp X  &kp C     &kp V     &kp B        &kp N          &kp M     &kp COMMA &kp DOT &kp FSLH &mt LALT trml
                 // └────────┴──────┴──────┼─────────┼─────────┼─────────┤  ├──────────────┼─────────┼─────────┼───────┴────────┴──────────────┘
                 //                        │         │         │         │  │              │         │         │ 
-                                           &kp SPACE &kp LSHFT &td_layer    &kp DEL        &kp RCTRL &kp BSPC
+                                           &kp SPACE &kp LSHFT &td_layer    &kp SLCK       &kp RCTRL &kp BSPC
                 //                        └─────────┴─────────┴─────────┘  └──────────────┴─────────┴─────────┘ 
             >;
         };
@@ -102,13 +128,13 @@
             bindings = <
                 // ┌─────────┬─────────┬───────┬─────────┬─────────┬─────────┐  ┌───────────────┬─────────┬─────────┬─────────┬────────┬──────────────┐
                 // │         │         │       │         │         │         │  │               │         │         │         │        │              │
-                    &kp TAB   &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET       &kp AMPS  &kp ASTRK &kp LPAR  &kp RPAR &kp RBKT
+                    &kp TAB   &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET       &kp AMPS  &kp ASTRK &parnt    &brakt   &brace  
                 // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├───────────────┼─────────┼─────────┼─────────┼────────┼──────────────┤
                 // │         │         │       │         │         │         │  │               │         │         │         │        │              │
                     &kp ESC   &kp N1    &kp N2  &kp N3    &kp N4    &kp N5       &kp N6          &kp N7    &kp N8    &kp N9    &kp N0   &kp BSLH
                 // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├───────────────┼─────────┼─────────┼─────────┼────────┼──────────────┤
                 // │         │         │       │         │         │         │  │               │         │         │         │        │              │
-                    &kp LGUI  &trans    &trans  &kp INS   &kp SLCK  &trans       &trans          &kp MINUS &kp EQUAL &kp GRAVE &trans   &mt LALT trml 
+                    &kp LGUI  &trans    &trans  &trans    &trans    &trans       &kp PLUS        &kp EQUAL &kp TILDE &kp GRAVE &trans   &mt LALT trml 
                 // └─────────┴─────────┴───────┼─────────┼─────────┼─────────┤  ├───────────────┼─────────┼─────────┼─────────┴────────┴──────────────┘
                 //                             │         │         │         │  │               │         │         │
                                                 &kp SPACE &kp LSHFT &td_layer    &to DEF         &kp RCTRL &kp BSPC  
