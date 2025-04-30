@@ -63,18 +63,46 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         // [ and ] mod
-        brakt: open_close_parenthesis {
+        brakt: open_close_bracket {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp LBKT>, <&kp RBKT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         // { and } mod
-        brace: open_close_parenthesis {
+        brace: open_close_braces {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp LBRC>, <&kp RBRC>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        // j and gui+down mod
+        jgui: j_and_gui_down {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp J>, <&kp LG(DOWN)>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+        // w and gui+up mod
+        wgui: w_and_gui_up {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp W>, <&kp LG(UP)>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+        // h and gui+left mod
+        hgui: h_and_gui_left {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp H>, <&kp LG(LEFT)>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+        // l and gui+right mod
+        lgui: l_and_gui_right {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp L>, <&kp LG(RIGHT)>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
         };
     };
     combos {
@@ -114,7 +142,7 @@
                     &kp TAB  &kp Q  &kp W  &kp E     &kp R     &kp T        &kp Y          &kp U     &kp I     &kp O   &kp P    &kp MINUS
                 // ├────────┼──────┼──────┼─────────┼─────────┼─────────┤  ├──────────────┼─────────┼─────────┼───────┼────────┼──────────────┤
                 // │        │      │      │         │         │         │  │              │         │         │       │        │              │
-                    &kp ESC  &kp A  &kp S  &kp D     &kp F     &kp G        &kp H          &kp J     &kp K     &kp L   &kp SEMI &kp SQT
+                    &kp ESC  &kp A  &kp S  &kp D     &kp F     &kp G        &hgui          &jgui     &kgui     &lgui   &kp SEMI &kp SQT
                 // ├────────┼──────┼──────┼─────────┼─────────┼─────────┤  ├──────────────┼─────────┼─────────┼───────┼────────┼──────────────┤
                 // │        │      │      │         │         │         │  │              │         │         │       │        │              │
                     &kp LGUI &kp Z  &kp X  &kp C     &kp V     &kp B        &kp N          &kp M     &kp COMMA &kp DOT &kp FSLH &mt LALT trml
