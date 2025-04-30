@@ -83,11 +83,11 @@
             bindings = <&kp J>, <&kp LG(DOWN)>;
             mods = <(MOD_LGUI|MOD_RGUI)>;
         };
-        // w and gui+up mod
-        wgui: w_and_gui_up {
+        // k and gui+up mod
+        kgui: k_and_gui_up {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp W>, <&kp LG(UP)>;
+            bindings = <&kp K>, <&kp LG(UP)>;
             mods = <(MOD_LGUI|MOD_RGUI)>;
         };
         // h and gui+left mod
