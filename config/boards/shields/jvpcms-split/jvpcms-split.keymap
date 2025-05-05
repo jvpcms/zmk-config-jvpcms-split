@@ -66,13 +66,6 @@
 
 / {
     behaviors {
-        /* lcht: tap_layer_hold_keypress { */
-        /*     compatible = "zmk,behavior-hold-tap"; */
-        /*     #binding-cells = <2>; */
-        /*     flavor = "hold-preferred"; */
-        /*     tapping-term-ms = <200>; */
-        /*     bindings = <&kp>, <&to>; */
-        /* }; */
         // stick layer and to layer
         td_lyr1: tap_dance_num_layer {
             compatible = "zmk,behavior-tap-dance";
@@ -87,55 +80,34 @@
             tapping-term-ms = <200>;
             bindings = <&sl SGN>, <&to SGN>;
         };
-        /* // ( and ) mod */
-        /* parnt: open_close_parenthesis { */
-        /*     compatible = "zmk,behavior-mod-morph"; */
-        /*     #binding-cells = <0>; */
-        /*     bindings = <&kp LPAR>, <&kp RPAR>; */
-        /*     mods = <(MOD_LSFT|MOD_RSFT)>; */
-        /* }; */
-        /* // [ and ] mod */
-        /* brakt: open_close_bracket { */
-        /*     compatible = "zmk,behavior-mod-morph"; */
-        /*     #binding-cells = <0>; */
-        /*     bindings = <&kp LBKT>, <&kp RBKT>; */
-        /*     mods = <(MOD_LSFT|MOD_RSFT)>; */
-        /* }; */
-        /* // { and } mod */
-        /* brace: open_close_braces { */
-        /*     compatible = "zmk,behavior-mod-morph"; */
-        /*     #binding-cells = <0>; */
-        /*     bindings = <&kp LBRC>, <&kp RBRC>; */
-        /*     mods = <(MOD_LSFT|MOD_RSFT)>; */
-        /* }; */
-        /* // j and gui+down mod */
-        /* jgui: j_and_gui_down { */
-        /*     compatible = "zmk,behavior-mod-morph"; */
-        /*     #binding-cells = <0>; */
-        /*     bindings = <&kp J>, <&kp LG(DOWN)>; */
-        /*     mods = <(MOD_LGUI|MOD_RGUI)>; */
-        /* }; */
-        /* // k and gui+up mod */
-        /* kgui: k_and_gui_up { */
-        /*     compatible = "zmk,behavior-mod-morph"; */
-        /*     #binding-cells = <0>; */
-        /*     bindings = <&kp K>, <&kp LG(UP)>; */
-        /*     mods = <(MOD_LGUI|MOD_RGUI)>; */
-        /* }; */
-        /* // h and gui+left mod */
-        /* hgui: h_and_gui_left { */
-        /*     compatible = "zmk,behavior-mod-morph"; */
-        /*     #binding-cells = <0>; */
-        /*     bindings = <&kp H>, <&kp LG(LEFT)>; */
-        /*     mods = <(MOD_LGUI|MOD_RGUI)>; */
-        /* }; */
-        /* // l and gui+right mod */
-        /* lgui: l_and_gui_right { */
-        /*     compatible = "zmk,behavior-mod-morph"; */
-        /*     #binding-cells = <0>; */
-        /*     bindings = <&kp L>, <&kp LG(RIGHT)>; */
-        /*     mods = <(MOD_LGUI|MOD_RGUI)>; */
-        /* }; */
+        // j and gui+down mod
+        jgui: j_and_gui_down {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp J>, <&kp LG(DOWN)>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+        // k and gui+up mod
+        kgui: k_and_gui_up {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp K>, <&kp LG(UP)>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+        // h and gui+left mod
+        hgui: h_and_gui_left {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp H>, <&kp LG(LEFT)>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+        // l and gui+right mod
+        lgui: l_and_gui_right {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp L>, <&kp LG(RIGHT)>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
         bsp_del: backspace_del {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -165,17 +137,12 @@
             key-positions = <19 20>;
             bindings = <&kp ENTER>;
         };
-        /* // mouse layer combo */
-        /* combo_mouse_layer { */
-        /*     timeout-ms = <50>; */
-        /*     key-positions = <7 8>; */
-        /*     bindings = <&to MSE>; */
-        /* }; */
         // ble layer combo
         combo_ble_layer {
             timeout-ms = <50>;
-            key-positions = <7 8 9>;
+            key-positions = <0 11>;
             bindings = <&to BLE>;
+            laeyrs = <BLE>;
         };
         // middle click combo
         combo_mclk {
@@ -191,10 +158,10 @@
             bindings = <
                 // ┌────────┬──────┬──────┬──────────┬──────────┬─────────┐  ┌─────────┬───────────┬───────────┬───────┬────────┬──────────────┐
                 // │        │      │      │          │          │         │  │         │           │           │       │        │              │
-                    &kp TAB  &kp Q  &kp W  &kp E      &kp R      &kp T        &kp Y     &kp U       &kp I       &kp O   &kp P    &kp MINUS
+                    &kp TAB  &kp Q  &kp W  &hm LGUI E &hm LALT R &kp T        &kp Y     &hm RALT U  &hm RGUI I  &kp O   &kp P    &kp MINUS
                 // ├────────┼──────┼──────┼──────────┼──────────┼─────────┤  ├─────────┼───────────┼───────────┼───────┼────────┼──────────────┤
                 // │        │      │      │          │          │         │  │         │           │           │       │        │              │
-                    &kp ESC  &kp A  &kp S  &hm LGUI D &hm LALT F &kp G        &kp H     &hm RALT J  &hm RGUI K  &kp L   &kp SEMI &kp SQT
+                    &kp ESC  &kp A  &kp S  &kp D      &kp F      &kp G        &hgui     &jgui       &kgui       &lgui   &kp SEMI &kp SQT
                 // ├────────┼──────┼──────┼──────────┼──────────┼─────────┤  ├─────────┼───────────┼───────────┼───────┼────────┼──────────────┤
                 // │        │      │      │          │          │         │  │         │           │           │       │        │              │
                     &kp meh  &kp Z  &kp X  &kp C      &kp V      &kp B        &kp N     &kp M       &kp COMMA   &kp DOT &kp FSLH &kp trml
