@@ -11,7 +11,7 @@
 
 #define trml LC(LA(T))
 #define lock LG(L)
-#define hide LS(H)
+#define hide LG(H)
 #define meh LC(LS(LALT))
 
 // Mouse ----------
