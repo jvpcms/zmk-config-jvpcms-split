@@ -142,7 +142,7 @@
             timeout-ms = <50>;
             key-positions = <0 11>;
             bindings = <&to BLE>;
-            laeyrs = <BLE>;
+            layers = <BLE>;
         };
         // middle click combo
         combo_mclk {
