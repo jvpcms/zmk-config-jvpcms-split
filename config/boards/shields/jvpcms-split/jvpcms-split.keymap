@@ -145,7 +145,7 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-        hmj: homerow_mods {
+        hmj: homerow_mods_jgui {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
@@ -154,7 +154,7 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&jgui>;
         };
-        hmk: homerow_mods {
+        hmk: homerow_mods_kgui {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
