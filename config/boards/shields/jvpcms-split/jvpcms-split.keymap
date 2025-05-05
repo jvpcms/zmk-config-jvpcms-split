@@ -5,12 +5,17 @@
 
 #define DEF 0
 #define NUM 1
-#define MSE 2
-#define BLE 3
+#define SGN 2
+#define MSE 3
+#define BLE 4
 
 #define trml LC(LA(T))
+#define lock LG(L)
+#define hide LS(H)
+#define meh LC(LS(LALT))
 
-#define U_MOUSE_MOVE_MAX 1400
+// Mouse ----------
+#define U_MOUSE_MOVE_MAX 600
 #undef MOVE_UP
 #undef MOVE_DOWN
 #undef MOVE_LEFT
@@ -21,11 +26,11 @@
 #define MOVE_RIGHT MOVE_X(U_MOUSE_MOVE_MAX)
 
 &mmv {
-    time-to-max-speed-ms = <550>;
+    time-to-max-speed-ms = <680>;
     acceleration-exponent = <2>;
 };
 
-#define U_MOUSE_SCROLL_MAX 200
+#define U_MOUSE_SCROLL_MAX 20
 #undef SCROLL_UP
 #undef SCROLL_DOWN
 #undef SCROLL_LEFT
@@ -39,48 +44,70 @@
     time-to-max-speed-ms = <500>;
 };
 
+#define prv_srch LA(LEFT)
+#define nxt_srch LA(RIGHT)
+#define new_tab LS(T)
+#define cls_tab LS(W)
+#define reopen_tab LS(LC(T))
+#define nxt_tab LC(TAB)
+#define prv_tab LS(LC(TAB))
+// Sticky layer -----------
+
 // this option makes modifier keys not end sticky layer actions
 &sl {
     ignore-modifiers;
 };
 
+// Mod morph -----------
+&mt {
+    flavor = "tap-preferred";
+    tapping_term_ms = <200>;
+};
+
 / {
     behaviors {
-        lcht: tap_layer_hold_keypress {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&kp>, <&to>;
-        };
+        /* lcht: tap_layer_hold_keypress { */
+        /*     compatible = "zmk,behavior-hold-tap"; */
+        /*     #binding-cells = <2>; */
+        /*     flavor = "hold-preferred"; */
+        /*     tapping-term-ms = <200>; */
+        /*     bindings = <&kp>, <&to>; */
+        /* }; */
         // stick layer and to layer
-        td_layer: tap_dance_num_layer {
+        td_lyr1: tap_dance_num_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&sl NUM>, <&to NUM>;
         };
-        // ( and ) mod
-        parnt: open_close_parenthesis {
-            compatible = "zmk,behavior-mod-morph";
+        // stick layer and to layer
+        td_lyr2: tap_dance_sgn_layer {
+            compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&kp LPAR>, <&kp RPAR>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            tapping-term-ms = <200>;
+            bindings = <&sl SGN>, <&to SGN>;
         };
-        // [ and ] mod
-        brakt: open_close_bracket {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LBKT>, <&kp RBKT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        // { and } mod
-        brace: open_close_braces {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LBRC>, <&kp RBRC>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+        /* // ( and ) mod */
+        /* parnt: open_close_parenthesis { */
+        /*     compatible = "zmk,behavior-mod-morph"; */
+        /*     #binding-cells = <0>; */
+        /*     bindings = <&kp LPAR>, <&kp RPAR>; */
+        /*     mods = <(MOD_LSFT|MOD_RSFT)>; */
+        /* }; */
+        /* // [ and ] mod */
+        /* brakt: open_close_bracket { */
+        /*     compatible = "zmk,behavior-mod-morph"; */
+        /*     #binding-cells = <0>; */
+        /*     bindings = <&kp LBKT>, <&kp RBKT>; */
+        /*     mods = <(MOD_LSFT|MOD_RSFT)>; */
+        /* }; */
+        /* // { and } mod */
+        /* brace: open_close_braces { */
+        /*     compatible = "zmk,behavior-mod-morph"; */
+        /*     #binding-cells = <0>; */
+        /*     bindings = <&kp LBRC>, <&kp RBRC>; */
+        /*     mods = <(MOD_LSFT|MOD_RSFT)>; */
+        /* }; */
         // j and gui+down mod
         jgui: j_and_gui_down {
             compatible = "zmk,behavior-mod-morph";
@@ -115,19 +142,19 @@
         // enter key combo
         combo_enter {
             timeout-ms = <50>;
-            key-positions = <16 15>;
+            key-positions = <16 15>, <19 20>;
             bindings = <&kp ENTER>;
         };
-        // mouse layer combo
-        combo_mouse_layer {
-            timeout-ms = <50>;
-            key-positions = <19 20>;
-            bindings = <&to MSE>;
-        };
+        /* // mouse layer combo */
+        /* combo_mouse_layer { */
+        /*     timeout-ms = <50>; */
+        /*     key-positions = <7 8>; */
+        /*     bindings = <&to MSE>; */
+        /* }; */
         // ble layer combo
         combo_ble_layer {
             timeout-ms = <50>;
-            key-positions = <7 8>;
+            key-positions = <7 8 9>;
             bindings = <&to BLE>;
         };
         // middle click combo
@@ -150,45 +177,62 @@
                     &kp ESC  &kp A  &kp S  &kp D     &kp F     &kp G        &hgui          &jgui     &kgui     &lgui   &kp SEMI &kp SQT
                 // ├────────┼──────┼──────┼─────────┼─────────┼─────────┤  ├──────────────┼─────────┼─────────┼───────┼────────┼──────────────┤
                 // │        │      │      │         │         │         │  │              │         │         │       │        │              │
-                    &kp LGUI &kp Z  &kp X  &kp C     &kp V     &kp B        &kp N          &kp M     &kp COMMA &kp DOT &kp FSLH &mt LALT trml
+                    &kp meh  &kp Z  &kp X  &kp C     &kp V     &kp B        &kp N          &kp M     &kp COMMA &kp DOT &kp FSLH &kp trml
                 // └────────┴──────┴──────┼─────────┼─────────┼─────────┤  ├──────────────┼─────────┼─────────┼───────┴────────┴──────────────┘
                 //                        │         │         │         │  │              │         │         │ 
-                                           &kp SPACE &kp LSHFT &td_layer    &mt SLCK DEL   &kp RCTRL &kp BSPC
+                                           &kp SPACE &kp LSHFT &td_lyr1     &td_lyr2       &kp RCTRL &kp BSPC
                 //                        └─────────┴─────────┴─────────┘  └──────────────┴─────────┴─────────┘ 
             >;
         };
-        second_layer {
+        num_layer {
+            bindings = <
+                // ┌─────────┬─────────┬───────┬─────────┬─────────┬─────────┐  ┌────────────┬────────────┬────────────┬────────────┬─────────┬────────┐
+                // │         │         │       │         │         │         │  │            │            │            │            │         │        │
+                    &kp TAB   &kp EQUAL  &kp N7  &kp N8    &kp N9    &kp PLUS    &trans       &kp hide     &trans       &trans       &trans    &kp lock
+                // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┼─────────┼────────┤
+                // │         │         │       │         │         │         │  │            │            │            │            │         │        │
+                    &kp ESC   &kp COLON &kp N4  &kp N5    &kp N6    &kp ASTRK    &kp K_VOL_UP &kp K_VOL_DN &kp C_BRI_UP &kp C_BRI_DN &kp PSCRN &trans
+                // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┼─────────┼────────┤
+                // │         │         │       │         │         │         │  │            │            │            │            │         │        │
+                    &kp LGUI  &kp DOT   &kp N1    &kp N2  &kp N3    &kp N0       &trans       &trans       &trans       &trans       &to MSE   &trans
+                // └─────────┴─────────┴───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┴─────────┴────────┘
+                //                             │         │         │         │  │            │            │            │
+                                                &kp SPACE &kp LSHFT &td_lyr1     &to DEF      &kp RCTRL    &kp BSPC  
+                //                             └─────────┴─────────┴─────────┘  └────────────┴────────────┴────────────┘
+            >;
+        };
+        sign_layer {
             bindings = <
                 // ┌─────────┬─────────┬───────┬─────────┬─────────┬─────────┐  ┌───────────────┬─────────┬─────────┬─────────┬────────┬──────────────┐
                 // │         │         │       │         │         │         │  │               │         │         │         │        │              │
-                    &kp TAB   &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET       &kp AMPS  &kp ASTRK &parnt    &brakt   &brace  
+                    &kp TAB   &trans    &trans  &kp LPAR  &kp RPAR  &kp CARET    &kp DLLR        &kp PRCNT &kp AMPS  &kp ASTRK &trans   &trans
                 // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├───────────────┼─────────┼─────────┼─────────┼────────┼──────────────┤
                 // │         │         │       │         │         │         │  │               │         │         │         │        │              │
-                    &kp ESC   &kp N1    &kp N2  &kp N3    &kp N4    &kp N5       &kp N6          &kp N7    &kp N8    &kp N9    &kp N0   &kp BSLH
+                    &kp ESC   &trans    &trans  &kp LBKT  &kp RBKT  &kp AT       &kp HASH        &kp DQT   &kp SQT   &kp GRAVE &trans   &trans
                 // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├───────────────┼─────────┼─────────┼─────────┼────────┼──────────────┤
                 // │         │         │       │         │         │         │  │               │         │         │         │        │              │
-                    &kp LGUI  &trans    &trans  &trans    &trans    &trans       &kp PLUS        &kp EQUAL &kp TILDE &kp GRAVE &trans   &mt LALT trml 
+                    &kp LGUI  &to MSE   &trans  &kp LBRC  &kp RBRC  &kp EXCL     &kp QMARK       &kp TILDE &kp BSLH  &kp PIPE  &trans   &trans
                 // └─────────┴─────────┴───────┼─────────┼─────────┼─────────┤  ├───────────────┼─────────┼─────────┼─────────┴────────┴──────────────┘
                 //                             │         │         │         │  │               │         │         │
-                                                &kp SPACE &kp LSHFT &td_layer    &to DEF         &kp RCTRL &kp BSPC  
+                                                &kp SPACE &kp LSHFT &DEF         &td_lyr2        &kp RCTRL &kp BSPC  
                 //                             └─────────┴─────────┴─────────┘  └───────────────┴─────────┴─────────┘
             >;
         };
-        third_layer {
+        mouse_layer {
             bindings = <
-                // ┌────────┬───────┬──────────────┬──────────────┬───────────────┬──────────────┐  ┌───────────────┬────────────┬────────────┬────────────┬─────────┬──────────────┐ 
-                // │        │       │              │              │               │              │  │               │            │            │            │         │              │ 
-                    &kp TAB  &trans  &trans         &mmv MOVE_UP   &trans          &msc SCRL_UP      &kp K_VOL_DN    &kp K_VOL_UP &kp C_BRI_DN &kp C_BRI_UP &kp PSCRN &trans    
-                // ├────────┼───────┼──────────────┼──────────────┼───────────────┼──────────────┤  ├───────────────┼────────────┼────────────┼────────────┼─────────┼──────────────┤ 
-                // │        │       │              │              │               │              │  │               │            │            │            │         │              │ 
-                    &kp ESC  &trans  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_DOWN    &kp LEFT        &kp DOWN     &kp UP       &kp RIGHT    &trans    &trans 
-                // ├────────┼───────┼──────────────┼──────────────┼───────────────┼──────────────┤  ├───────────────┼────────────┼────────────┼────────────┼─────────┼──────────────┤ 
-                // │        │       │              │              │               │              │  │               │            │            │            │         │              │
-                    &kp LGUI &trans  &trans         &trans         &trans          &trans            &kp HOME        &kp PG_DN    &kp PG_UP    &kp END      &trans    &mt LALT trml 
-                // └────────┴───────┴──────────────┼──────────────┼───────────────┼──────────────┤  ├───────────────┼────────────┼────────────┼────────────┴─────────┴──────────────┘
-                //                                 │              │               │              │  │               │            │            │
-                                                    &mkp LCLK      &kp LSHFT       &td_layer         &to DEF         &kp RCTRL    &mkp RCLK 
-                //                                 └──────────────┴───────────────┴──────────────┘  └───────────────┴────────────┴────────────┘
+                // ┌────────┬───────┬──────────────┬──────────────┬───────────────┬──────────────┐  ┌───────────┬────────────┬────────────┬────────────┬───────┬───────┐ 
+                // │        │       │              │              │               │              │  │           │            │            │            │       │       │ 
+                    &kp TAB  &trans  &trans         &mmv MOVE_UP   &trans          &msc SCRL_UP      &kp prv_tab &kp prv_srch &kp nxt_srch  &kp nxt_tab &trans  &trans
+                // ├────────┼───────┼──────────────┼──────────────┼───────────────┼──────────────┤  ├───────────┼────────────┼────────────┼────────────┼───────┼───────┤ 
+                // │        │       │              │              │               │              │  │           │            │            │            │       │       │ 
+                    &kp ESC  &trans  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_DOWN    &kp LEFT    &kp DOWN     &kp UP       &kp RIGHT    &trans  &trans
+                // ├────────┼───────┼──────────────┼──────────────┼───────────────┼──────────────┤  ├───────────┼────────────┼────────────┼────────────┼───────┼───────┤ 
+                // │        │       │              │              │               │              │  │           │            │            │            │       │       │
+                    &kp LGUI &trans  &trans         &trans         &trans          &trans            &kp HOME    &kp PG_DN    &kp PG_UP    &kp END      &trans  &trans
+                // └────────┴───────┴──────────────┼──────────────┼───────────────┼──────────────┤  ├───────────┼────────────┼────────────┼────────────┴───────┴───────┘
+                //                                 │              │               │              │  │           │            │            │
+                                                    &mkp LCLK      &kp LSHFT       &td_lyr1         &to DEF      &kp RCTRL    &mkp RCLK 
+                //                                 └──────────────┴───────────────┴──────────────┘  └───────────┴────────────┴────────────┘
             >;
         };
         ble_layer {
@@ -204,7 +248,7 @@
                     &trans   &trans   &trans   &trans   &bt BT_SEL 0  &trans        &trans   &trans     &trans  &trans  &trans  &trans       
                 // └────────┴────────┴────────┼────────┼─────────────┼──────────┤  ├────────┼──────────┼───────┼───────┼───────┴───────┘
                 //                            │        │             │          │  │        │          │       │
-                                               &trans   &trans        &td_layer     &to DEF  &trans     &trans     
+                                               &trans   &trans        &td_lyr1     &to DEF  &trans     &trans     
                 //                            └────────┴─────────────┴──────────┘  └────────┴──────────┴───────┘
             >;
         };
