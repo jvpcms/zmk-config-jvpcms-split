@@ -180,7 +180,7 @@
                     &kp meh  &kp Z  &kp X  &kp C     &kp V     &kp B        &kp N          &kp M     &kp COMMA &kp DOT &kp FSLH &kp trml
                 // └────────┴──────┴──────┼─────────┼─────────┼─────────┤  ├──────────────┼─────────┼─────────┼───────┴────────┴──────────────┘
                 //                        │         │         │         │  │              │         │         │ 
-                                           &kp SPACE &kp LSHFT &td_lyr1     &kp A          &kp RCTRL &kp BSPC
+                                           &kp SPACE &kp LSHFT &td_lyr1     &td_lyr2       &kp RCTRL &kp BSPC
                 //                        └─────────┴─────────┴─────────┘  └──────────────┴─────────┴─────────┘ 
             >;
         };
@@ -214,7 +214,7 @@
                     &kp LGUI  &to MSE   &trans  &kp LBRC  &kp RBRC  &kp EXCL     &kp QMARK       &kp TILDE &kp BSLH  &kp PIPE  &trans   &trans
                 // └─────────┴─────────┴───────┼─────────┼─────────┼─────────┤  ├───────────────┼─────────┼─────────┼─────────┴────────┴──────────────┘
                 //                             │         │         │         │  │               │         │         │
-                                                &kp SPACE &kp LSHFT &DEF         &kp A           &kp RCTRL &kp BSPC  
+                                                &kp SPACE &kp LSHFT &to DEF      &td_lyr2        &kp RCTRL &kp BSPC  
                 //                             └─────────┴─────────┴─────────┘  └───────────────┴─────────┴─────────┘
             >;
         };
@@ -231,7 +231,7 @@
                     &kp LGUI &trans  &trans         &trans         &trans          &trans            &kp HOME    &kp PG_DN    &kp PG_UP    &kp END      &trans  &trans
                 // └────────┴───────┴──────────────┼──────────────┼───────────────┼──────────────┤  ├───────────┼────────────┼────────────┼────────────┴───────┴───────┘
                 //                                 │              │               │              │  │           │            │            │
-                                                    &mkp LCLK      &kp LSHFT       &td_lyr1          &kp A       &kp RCTRL    &mkp RCLK 
+                                                    &mkp LCLK      &kp LSHFT       &td_lyr1          &td_lyr2    &kp RCTRL    &mkp RCLK 
                 //                                 └──────────────┴───────────────┴──────────────┘  └───────────┴────────────┴────────────┘
             >;
         };
