@@ -60,8 +60,8 @@
 
 // Mod morph -----------
 &mt {
-    flavor = "tap-preferred";
-    tapping_term_ms = <200>;
+    flavor = "balanced";
+    tapping_term_ms = <500>;
 };
 
 / {
@@ -70,14 +70,14 @@
         td_lyr1: tap_dance_num_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&sl NUM>, <&to NUM>;
         };
         // stick layer and to layer
         td_lyr2: tap_dance_sgn_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&sl SGN>, <&to SGN>;
         };
         // j and gui+down mod
