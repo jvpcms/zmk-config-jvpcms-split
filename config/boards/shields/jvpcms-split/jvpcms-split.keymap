@@ -15,19 +15,24 @@
 #define meh LC(LS(LALT))
 
 // Mouse ----------
-#define U_MOUSE_MOVE_MAX 900
+#define U_MOUSE_MOVE_FAST 900
+#define U_MOUSE_MOVE_SLOW 100
 #undef MOVE_UP
 #undef MOVE_DOWN
 #undef MOVE_LEFT
 #undef MOVE_RIGHT
-#define MOVE_UP MOVE_Y(-U_MOUSE_MOVE_MAX)
-#define MOVE_DOWN MOVE_Y(U_MOUSE_MOVE_MAX)
-#define MOVE_LEFT MOVE_X(-U_MOUSE_MOVE_MAX)
-#define MOVE_RIGHT MOVE_X(U_MOUSE_MOVE_MAX)
+#define MOVE_UP_F MOVE_Y(-U_MOUSE_MOVE_FAST)
+#define MOVE_DOWN_F MOVE_Y(U_MOUSE_MOVE_FAST)
+#define MOVE_LEFT_F MOVE_X(-U_MOUSE_MOVE_FAST)
+#define MOVE_RIGHT_F MOVE_X(U_MOUSE_MOVE_FAST)
+#define MOVE_UP_S MOVE_Y(-U_MOUSE_MOVE_SLOW)
+#define MOVE_DOWN_S MOVE_Y(U_MOUSE_MOVE_SLOW)
+#define MOVE_LEFT_S MOVE_X(-U_MOUSE_MOVE_SLOW)
+#define MOVE_RIGHT_S MOVE_X(U_MOUSE_MOVE_SLOW)
+
 
 &mmv {
-    time-to-max-speed-ms = <680>;
-    acceleration-exponent = <2>;
+    acceleration-exponent = <0>;
 };
 
 #define U_MOUSE_SCROLL_MAX 20
@@ -123,6 +128,30 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+        mfs_up: mouse_fast_slow_up {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mmv MOVE_UP_S>, <&mmv MOVE_UP_F>;
+            mods = <(MOD_LCRL|MOD_RCTL)>;
+        };
+        mfs_down: mouse_fast_slow_down {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mmv MOVE_DOWN_S>, <&mmv MOVE_DOWN_F>;
+            mods = <(MOD_LCRL|MOD_RCTL)>;
+        };
+        mfs_left: mouse_fast_slow_left {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mmv MOVE_LEFT_S>, <&mmv MOVE_LEFT_F>;
+            mods = <(MOD_LCRL|MOD_RCTL)>;
+        };
+        mfs_right: mouse_fast_slow_right {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mmv MOVE_RIGHT_S>, <&mmv MOVE_RIGHT_F>;
+            mods = <(MOD_LCRL|MOD_RCTL)>;
+        };
     };
     combos {
         compatible = "zmk,combos";
@@ -207,19 +236,19 @@
         };
         mouse_layer {
             bindings = <
-                // ┌────────┬───────┬──────────────┬──────────────┬───────────────┬──────────────┐  ┌───────────┬────────────┬────────────┬────────────┬───────┬───────┐ 
-                // │        │       │              │              │               │              │  │           │            │            │            │       │       │ 
-                    &kp TAB  &trans  &trans         &mmv MOVE_UP   &trans          &msc SCRL_UP      &kp prv_tab &kp prv_srch &kp nxt_srch  &kp nxt_tab &trans  &trans
-                // ├────────┼───────┼──────────────┼──────────────┼───────────────┼──────────────┤  ├───────────┼────────────┼────────────┼────────────┼───────┼───────┤ 
-                // │        │       │              │              │               │              │  │           │            │            │            │       │       │ 
-                    &kp ESC  &trans  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_DOWN    &kp LEFT    &kp DOWN     &kp UP       &kp RIGHT    &trans  &trans
-                // ├────────┼───────┼──────────────┼──────────────┼───────────────┼──────────────┤  ├───────────┼────────────┼────────────┼────────────┼───────┼───────┤ 
-                // │        │       │              │              │               │              │  │           │            │            │            │       │       │
-                    &kp LGUI &trans  &trans         &trans         &trans          &trans            &kp HOME    &kp PG_DN    &kp PG_UP    &kp END      &trans  &trans
-                // └────────┴───────┴──────────────┼──────────────┼───────────────┼──────────────┤  ├───────────┼────────────┼────────────┼────────────┴───────┴───────┘
-                //                                 │              │               │              │  │           │            │            │
-                                                    &mkp LCLK      &kp LSHFT       &to DEF           &to DEF     &kp RCTRL    &mkp RCLK 
-                //                                 └──────────────┴───────────────┴──────────────┘  └───────────┴────────────┴────────────┘
+                // ┌────────┬───────┬──────────┬──────────┬───────────┬──────────────┐  ┌───────────┬────────────┬────────────┬────────────┬───────┬───────┐ 
+                // │        │       │          │          │           │              │  │           │            │            │            │       │       │ 
+                    &kp TAB  &trans  &trans     &mfs_up    &trans      &msc SCRL_UP      &kp prv_tab &kp prv_srch &kp nxt_srch  &kp nxt_tab &trans  &trans
+                // ├────────┼───────┼──────────┼──────────┼───────────┼──────────────┤  ├───────────┼────────────┼────────────┼────────────┼───────┼───────┤ 
+                // │        │       │          │          │           │              │  │           │            │            │            │       │       │ 
+                    &kp ESC  &trans  &mfs_left  &mfs_down  &mfs_right  &msc SCRL_DOWN    &kp LEFT    &kp DOWN     &kp UP       &kp RIGHT    &trans  &trans
+                // ├────────┼───────┼──────────┼──────────┼───────────┼──────────────┤  ├───────────┼────────────┼────────────┼────────────┼───────┼───────┤ 
+                // │        │       │          │          │           │              │  │           │            │            │            │       │       │
+                    &kp LGUI &trans  &trans     &trans     &trans      &trans            &kp HOME    &kp PG_DN    &kp PG_UP    &kp END      &trans  &trans
+                // └────────┴───────┴──────────┼──────────┼───────────┼──────────────┤  ├───────────┼────────────┼────────────┼────────────┴───────┴───────┘
+                //                             │          │           │              │  │           │            │            │
+                                                &mkp LCLK  &kp LSHFT   &to DEF           &to DEF     &kp RCTRL    &mkp RCLK 
+                //                             └──────────┴───────────┴──────────────┘  └───────────┴────────────┴────────────┘
             >;
         };
         ble_layer {
