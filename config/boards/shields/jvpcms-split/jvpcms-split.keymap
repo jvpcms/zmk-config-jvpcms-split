@@ -35,7 +35,7 @@
     acceleration-exponent = <0>;
 };
 
-#define U_MOUSE_SCROLL_MAX 20
+#define U_MOUSE_SCROLL_MAX 30
 #undef SCROLL_UP
 #undef SCROLL_DOWN
 #undef SCROLL_LEFT
@@ -132,25 +132,25 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mmv MOVE_UP_S>, <&mmv MOVE_UP_F>;
-            mods = <(MOD_LCRL|MOD_RCTL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         mfs_down: mouse_fast_slow_down {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mmv MOVE_DOWN_S>, <&mmv MOVE_DOWN_F>;
-            mods = <(MOD_LCRL|MOD_RCTL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         mfs_left: mouse_fast_slow_left {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mmv MOVE_LEFT_S>, <&mmv MOVE_LEFT_F>;
-            mods = <(MOD_LCRL|MOD_RCTL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         mfs_right: mouse_fast_slow_right {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mmv MOVE_RIGHT_S>, <&mmv MOVE_RIGHT_F>;
-            mods = <(MOD_LCRL|MOD_RCTL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
     };
     combos {
