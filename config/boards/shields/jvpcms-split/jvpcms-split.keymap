@@ -4,8 +4,8 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define DEF 0
-#define NUM 1
-#define SGN 2
+#define SGN 1
+#define NUM 2
 #define MSE 3
 #define BLE 4
 
@@ -68,18 +68,18 @@
 / {
     behaviors {
         // stick layer and to layer
-        td_lyr1: tap_dance_num_layer {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <300>;
-            bindings = <&sl NUM>, <&to NUM>;
-        };
-        // stick layer and to layer
-        td_lyr2: tap_dance_sgn_layer {
+        td_lyr1: tap_dance_sgn_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
             bindings = <&sl SGN>, <&to SGN>;
+        };
+        // stick layer and to layer
+        td_lyr2: tap_dance_num_layer {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&sl NUM>, <&to NUM>;
         };
         // j and gui+down mod
         jgui: j_and_gui_down {
@@ -196,23 +196,6 @@
                 //                        └──────────┴──────────┴─────────┘  └─────────┴───────────┴──────────────┘ 
             >;
         };
-        num_layer {
-            bindings = <
-                // ┌─────────┬─────────┬───────┬─────────┬─────────┬─────────┐  ┌────────────┬────────────┬────────────┬────────────┬─────────┬────────┐
-                // │         │         │       │         │         │         │  │            │            │            │            │         │        │
-                    &kp meh   &kp EQUAL  &kp N7 &kp N8    &kp N9    &kp paste    &kp hide     &trans       &trans       &trans       &kp lock  &trans  
-                // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┼─────────┼────────┤
-                // │         │         │       │         │         │         │  │            │            │            │            │         │        │
-                    &to DEF   &kp COLON &kp N4  &kp N5    &kp N6    &kp copy     &kp K_VOL_UP &kp K_VOL_DN &kp C_BRI_UP &kp C_BRI_DN &kp PSCRN &kp TAB
-                // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┼─────────┼────────┤
-                // │         │         │       │         │         │         │  │            │            │            │            │         │        │
-                    &kp LGUI  &kp DOT   &kp N1  &kp N2    &kp N3    &kp N0       &kp SLCK     &kp RALT     &kp LGUI     &to MSE      &trans    &trans
-                // └─────────┴─────────┴───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┴─────────┴────────┘
-                //                             │         │         │         │  │            │            │            │
-                                                &kp SPACE &kp LSHFT &td_lyr1     &td_lyr2     &kp RCTRL    &kp BSPC
-                //                             └─────────┴─────────┴─────────┘  └────────────┴────────────┴────────────┘
-            >;
-        };
         sign_layer {
             bindings = <
                 // ┌─────────┬─────────┬───────┬─────────┬─────────┬─────────┐  ┌───────────────┬─────────┬─────────┬─────────┬────────┬──────────────┐
@@ -228,6 +211,23 @@
                 //                             │         │         │         │  │               │         │         │
                                                 &kp SPACE &kp LSHFT &td_lyr1     &td_lyr2        &kp RCTRL &kp BSPC
                 //                             └─────────┴─────────┴─────────┘  └───────────────┴─────────┴─────────┘
+            >;
+        };
+        num_layer {
+            bindings = <
+                // ┌─────────┬─────────┬───────┬─────────┬─────────┬─────────┐  ┌────────────┬────────────┬────────────┬────────────┬─────────┬────────┐
+                // │         │         │       │         │         │         │  │            │            │            │            │         │        │
+                    &kp meh   &kp EQUAL  &kp N7 &kp N8    &kp N9    &kp paste    &kp hide     &trans       &trans       &trans       &kp lock  &trans  
+                // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┼─────────┼────────┤
+                // │         │         │       │         │         │         │  │            │            │            │            │         │        │
+                    &to DEF   &kp COLON &kp N4  &kp N5    &kp N6    &kp copy     &kp K_VOL_UP &kp K_VOL_DN &kp C_BRI_UP &kp C_BRI_DN &kp PSCRN &kp TAB
+                // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┼─────────┼────────┤
+                // │         │         │       │         │         │         │  │            │            │            │            │         │        │
+                    &kp LGUI  &kp DOT   &kp N1  &kp N2    &kp N3    &kp N0       &kp SLCK     &kp RALT     &kp LGUI     &to MSE      &trans    &trans
+                // └─────────┴─────────┴───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┴─────────┴────────┘
+                //                             │         │         │         │  │            │            │            │
+                                                &kp SPACE &kp LSHFT &td_lyr1     &td_lyr2     &kp RCTRL    &kp BSPC
+                //                             └─────────┴─────────┴─────────┘  └────────────┴────────────┴────────────┘
             >;
         };
         mouse_layer {
