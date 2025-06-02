@@ -14,7 +14,7 @@
 #define hide LG(H)
 #define meh LC(LS(LALT))
 #define copy LC(C)
-#define meh LC(V)
+#define paste LC(V)
 
 // Mouse ----------
 #define U_MOUSE_MOVE_FAST 900
