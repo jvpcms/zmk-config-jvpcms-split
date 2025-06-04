@@ -207,7 +207,7 @@
                     &to DEF   &kp copy  &kp DQT &kp LBKT  &kp RBKT  &kp AT       &kp HASH        &kp GRAVE &kp TILDE &kp PIPE  &trans   &kp TAB
                 // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├───────────────┼─────────┼─────────┼─────────┼────────┼──────────────┤
                 // │         │         │       │         │         │         │  │               │         │         │         │        │              │
-                    &kp LGUI  &kp paste &to MSE &kp LBRC  &kp RBRC  &kp EXCL     &kp QMARK       &kp EQUAL &kp PLUS  &kp BSLH  &trans   &trans
+                    &kp LGUI  &kp paste &trans  &kp LBRC  &kp RBRC  &kp EXCL     &kp QMARK       &kp EQUAL &kp PLUS  &kp BSLH  &to MSE  &trans
                 // └─────────┴─────────┴───────┼─────────┼─────────┼─────────┤  ├───────────────┼─────────┼─────────┼─────────┴────────┴──────────────┘
                 //                             │         │         │         │  │               │         │         │
                                                 &kp SPACE &kp LSHFT &td_lyr1     &td_lyr2        &kp RCTRL &kp BSPC
@@ -221,10 +221,10 @@
                     &kp meh   &kp FSLH  &kp N7  &kp N8    &kp N9    &trans       &kp hide     &trans       &trans       &trans       &kp lock  &trans  
                 // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┼─────────┼────────┤
                 // │         │         │       │         │         │         │  │            │            │            │            │         │        │
-                    &to DEF   &kp COLON &kp N4  &kp N5    &kp N6    &trans       &kp K_VOL_UP &kp K_VOL_DN &kp C_BRI_UP &kp C_BRI_DN &kp PSCRN &kp TAB
+                    &to DEF   &kp COLON &kp N4  &kp N5    &kp N6    &kp SLCK     &kp K_VOL_UP &kp K_VOL_DN &kp C_BRI_UP &kp C_BRI_DN &kp PSCRN &kp TAB
                 // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┼─────────┼────────┤
                 // │         │         │       │         │         │         │  │            │            │            │            │         │        │
-                    &kp LGUI  &kp DOT   &kp N1  &kp N2    &kp N3    &kp N0       &kp SLCK     &kp RALT     &kp LGUI     &to MSE      &trans    &trans
+                    &kp LGUI  &to MSE   &kp N1  &kp N2    &kp N3    &kp N0       &trans       &kp RALT     &kp LGUI     &trans       &trans    &trans
                 // └─────────┴─────────┴───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┴─────────┴────────┘
                 //                             │         │         │         │  │            │            │            │
                                                 &kp SPACE &kp LSHFT &td_lyr1     &td_lyr2     &kp RCTRL    &kp BSPC
