@@ -16,6 +16,7 @@
 #define copy LC(C)
 #define paste LC(V)
 #define cut LC(X)
+#define del_wrd LC(BSPC)
 
 // Mouse ----------
 #define U_MOUSE_MOVE_FAST 900
@@ -81,6 +82,13 @@
             #binding-cells = <0>;
             tapping-term-ms = <300>;
             bindings = <&sl NUM>, <&to NUM>;
+        };
+        // backspace and delete word
+        mbsp: backspace_and_del_wrd {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp del_wrd>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         // j and gui+down mod
         jgui: j_and_gui_down {
@@ -193,7 +201,7 @@
                     &kp DEL  &kp Z  &kp X  &hm LGUI C &hm LALT V &kp B        &kp N     &hm RALT M  &hm RGUI COMMA &kp DOT &kp FSLH &kp trml
                 // └────────┴──────┴──────┼──────────┼──────────┼─────────┤  ├─────────┼───────────┼──────────────┼───────┴────────┴──────────────┘
                 //                        │          │          │         │  │         │           │              │ 
-                                           &kp SPACE  &kp LSHFT  &td_lyr1     &td_lyr2  &kp RCTRL   &kp BSPC
+                                           &kp SPACE  &kp LSHFT  &td_lyr1     &td_lyr2  &kp RCTRL   &mbsp
                 //                        └──────────┴──────────┴─────────┘  └─────────┴───────────┴──────────────┘ 
             >;
         };
@@ -210,7 +218,7 @@
                     &kp LGUI  &kp paste &trans  &kp LBRC  &kp RBRC  &kp EXCL     &kp QMARK       &kp EQUAL &kp PLUS  &kp BSLH  &to MSE  &trans
                 // └─────────┴─────────┴───────┼─────────┼─────────┼─────────┤  ├───────────────┼─────────┼─────────┼─────────┴────────┴──────────────┘
                 //                             │         │         │         │  │               │         │         │
-                                                &kp SPACE &kp LSHFT &td_lyr1     &td_lyr2        &kp RCTRL &kp BSPC
+                                                &kp SPACE &kp LSHFT &td_lyr1     &td_lyr2        &kp RCTRL &mbsp
                 //                             └─────────┴─────────┴─────────┘  └───────────────┴─────────┴─────────┘
             >;
         };
@@ -227,7 +235,7 @@
                     &kp LGUI  &to MSE   &kp N1  &kp N2    &kp N3    &kp N0       &trans       &kp RALT     &kp LGUI     &trans       &trans    &trans
                 // └─────────┴─────────┴───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┴─────────┴────────┘
                 //                             │         │         │         │  │            │            │            │
-                                                &kp SPACE &kp LSHFT &td_lyr1     &td_lyr2     &kp RCTRL    &kp BSPC
+                                                &kp SPACE &kp LSHFT &td_lyr1     &td_lyr2     &kp RCTRL    &mbsp
                 //                             └─────────┴─────────┴─────────┘  └────────────┴────────────┴────────────┘
             >;
         };
