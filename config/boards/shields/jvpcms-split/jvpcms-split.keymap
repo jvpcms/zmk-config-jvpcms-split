@@ -83,11 +83,11 @@
             tapping-term-ms = <300>;
             bindings = <&sl NUM>, <&to NUM>;
         };
-        // backspace and delete word
+        // normal press delete word, shift + press delete character
         mbsp: backspace_and_del_wrd {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp BSPC>, <&kp del_wrd>;
+            bindings = <&kp del_wrd>, <&kp BSPC>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         // j and gui+down mod
