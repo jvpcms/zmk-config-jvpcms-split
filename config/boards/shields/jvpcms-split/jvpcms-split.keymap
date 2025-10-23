@@ -186,13 +186,23 @@
             layers = <MSE>;
         };
     };
+    macros {
+        // compose_key + move to sign layer
+        compose: compose_key {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp INS &td_lyr1>
+                ;
+        };
+    };
     keymap {
         compatible = "zmk,keymap";
         default_layer {
             bindings = <
                 // ┌────────┬──────┬──────┬──────────┬──────────┬─────────┐  ┌─────────┬───────────┬──────────────┬───────┬────────┬──────────────┐
                 // │        │      │      │          │          │         │  │         │           │              │       │        │              │
-                    &kp meh  &kp Q  &kp W  &kp E      &kp R      &kp T        &kp Y     &kp U       &kp I          &kp O   &kp P    &kp MINUS
+                    &compose &kp Q  &kp W  &kp E      &kp R      &kp T        &kp Y     &kp U       &kp I          &kp O   &kp P    &kp MINUS
                 // ├────────┼──────┼──────┼──────────┼──────────┼─────────┤  ├─────────┼───────────┼──────────────┼───────┼────────┼──────────────┤
                 // │        │      │      │          │          │         │  │         │           │              │       │        │              │
                     &kp ESC  &kp A  &kp S  &kp D      &kp F      &kp G        &hgui     &jgui       &kgui          &lgui   &kp SEMI &kp TAB
@@ -209,7 +219,7 @@
             bindings = <
                 // ┌─────────┬─────────┬───────┬─────────┬─────────┬─────────┐  ┌───────────────┬─────────┬─────────┬─────────┬────────┬──────────────┐
                 // │         │         │       │         │         │         │  │               │         │         │         │        │              │
-                    &kp meh   &kp cut   &kp SQT &kp LPAR  &kp RPAR  &kp CARET    &kp DLLR        &kp PRCNT &kp AMPS  &kp ASTRK &trans   &trans
+                    &trans    &kp cut   &kp SQT &kp LPAR  &kp RPAR  &kp CARET    &kp DLLR        &kp PRCNT &kp AMPS  &kp ASTRK &trans   &trans
                 // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├───────────────┼─────────┼─────────┼─────────┼────────┼──────────────┤
                 // │         │         │       │         │         │         │  │               │         │         │         │        │              │
                     &to DEF   &kp copy  &kp DQT &kp LBKT  &kp RBKT  &kp AT       &kp HASH        &kp GRAVE &kp TILDE &kp PIPE  &trans   &kp TAB
