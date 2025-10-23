@@ -229,7 +229,7 @@
                     &kp meh   &kp FSLH  &kp N7  &kp N8    &kp N9    &trans       &kp hide     &trans       &trans       &trans       &kp lock  &trans  
                 // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┼─────────┼────────┤
                 // │         │         │       │         │         │         │  │            │            │            │            │         │        │
-                    &to DEF   &kp COLON &kp N4  &kp N5    &kp N6    &kp SLCK     &kp K_VOL_UP &kp K_VOL_DN &kp C_BRI_UP &kp C_BRI_DN &kp PSCRN &kp TAB
+                    &to DEF   &kp COLON &kp N4  &kp N5    &kp N6    &kp INS      &kp K_VOL_UP &kp K_VOL_DN &kp C_BRI_UP &kp C_BRI_DN &kp PSCRN &kp TAB
                 // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┼─────────┼────────┤
                 // │         │         │       │         │         │         │  │            │            │            │            │         │        │
                     &kp LGUI  &to MSE   &kp N1  &kp N2    &kp N3    &kp N0       &trans       &kp RALT     &kp LGUI     &trans       &trans    &trans
