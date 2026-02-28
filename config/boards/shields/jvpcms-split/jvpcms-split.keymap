@@ -185,6 +185,19 @@
             bindings = <&mkp MCLK>;
             layers = <MSE>;
         };
+        // F key combos — right-side anchor (pos 30) + num key, NUM layer only
+        combo_f1  { timeout-ms = <100>; key-positions = <30 26>; bindings = <&kp F1>;  layers = <NUM>; };
+        combo_f2  { timeout-ms = <100>; key-positions = <30 27>; bindings = <&kp F2>;  layers = <NUM>; };
+        combo_f3  { timeout-ms = <100>; key-positions = <30 28>; bindings = <&kp F3>;  layers = <NUM>; };
+        combo_f4  { timeout-ms = <100>; key-positions = <30 14>; bindings = <&kp F4>;  layers = <NUM>; };
+        combo_f5  { timeout-ms = <100>; key-positions = <30 15>; bindings = <&kp F5>;  layers = <NUM>; };
+        combo_f6  { timeout-ms = <100>; key-positions = <30 16>; bindings = <&kp F6>;  layers = <NUM>; };
+        combo_f7  { timeout-ms = <100>; key-positions = <30  2>; bindings = <&kp F7>;  layers = <NUM>; };
+        combo_f8  { timeout-ms = <100>; key-positions = <30  3>; bindings = <&kp F8>;  layers = <NUM>; };
+        combo_f9  { timeout-ms = <100>; key-positions = <30  4>; bindings = <&kp F9>;  layers = <NUM>; };
+        combo_f10 { timeout-ms = <100>; key-positions = <30 29>; bindings = <&kp F10>; layers = <NUM>; };
+        combo_f11 { timeout-ms = <100>; key-positions = <30  1>; bindings = <&kp F11>; layers = <NUM>; };
+        combo_f12 { timeout-ms = <100>; key-positions = <30 13>; bindings = <&kp F12>; layers = <NUM>; };
     };
     macros {
         // compose_key + move to sign layer
@@ -242,7 +255,7 @@
                     &to DEF   &kp COLON &kp N4  &kp N5    &kp N6    &kp INS      &kp K_VOL_UP &kp K_VOL_DN &kp C_BRI_UP &kp C_BRI_DN &kp PSCRN &kp TAB
                 // ├─────────┼─────────┼───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┼─────────┼────────┤
                 // │         │         │       │         │         │         │  │            │            │            │            │         │        │
-                    &kp LGUI  &to MSE   &kp N1  &kp N2    &kp N3    &kp N0       &trans       &kp RALT     &kp LGUI     &trans       &trans    &trans
+                    &kp LGUI  &to MSE   &kp N1  &kp N2    &kp N3    &kp N0       &none        &kp RALT     &kp LGUI     &trans       &trans    &trans
                 // └─────────┴─────────┴───────┼─────────┼─────────┼─────────┤  ├────────────┼────────────┼────────────┼────────────┴─────────┴────────┘
                 //                             │         │         │         │  │            │            │            │
                                                 &kp SPACE &kp LSHFT &td_lyr1     &td_lyr2     &kp RCTRL    &kp BSPC
