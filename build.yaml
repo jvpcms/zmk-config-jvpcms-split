@@ -19,9 +19,9 @@
 #
 ---
 include:
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: jvpcms-split-left
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: jvpcms-split-right
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: settings_reset
